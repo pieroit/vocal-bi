@@ -18,10 +18,11 @@ window.vocalBIglobals = {
 function App() {
 
 	let initialState = {
-		parsedData:      undefined,
-		parsedMeta:      undefined,
-		variableOnXaxis: undefined,
-        variableOnYaxis: undefined,
+		parsedData       : undefined,
+		parsedMeta       : undefined,
+		variableOnXaxis  : undefined,
+		variableOnYaxis  : undefined,
+		showDistribution : false
 	}
 	let store = createStore(reducer, initialState)
 

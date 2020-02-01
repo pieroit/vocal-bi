@@ -1,5 +1,6 @@
 
 import React from "react"
+import { useDispatch } from "react-redux"
 import axios from "axios"
 import SpeechRecognition from "react-speech-recognition"
 import { substituteStringAtIndexes } from "./functions"
@@ -7,6 +8,8 @@ import { substituteStringAtIndexes } from "./functions"
 let oldTranscript = '#token#'
 
 const VoiceBar = (props) => {
+
+    let dispatch = useDispatch()
     
     let {
             transcript,
@@ -20,7 +23,7 @@ const VoiceBar = (props) => {
 
     // timer to detect end of utterance
     setTimeout( async ()=> {
-        if(transcript === oldTranscript){
+        if(transcript == oldTranscript){
 
             // preprocess utterance recognizing variable names
             let preprocessedTranscript = transcript
@@ -45,11 +48,17 @@ const VoiceBar = (props) => {
                 let ent = command.data.entities[i]
                 ent.columnName = entities[i].option
             }
-            console.warn( command.data )
+            //console.warn( command.data )
+            //console.log(entities)
 
             // reset utterance tracker
             oldTranscript = '#token#'
             resetTranscript()
+
+            dispatch({
+                type: 'PARSED_INTENT',
+                body: command.data
+            })
         }
         
     }, 1000)

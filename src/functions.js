@@ -18,7 +18,7 @@ export const parseCSVandNotifyStore = (file, dispatch) => {
             trainNER(parsedCSV.meta.fields)
             
             dispatch({
-                type      : 'DATA-LOADED',
+                type      : 'DATA_LOADED',
                 parsedCSV
             })
         }
