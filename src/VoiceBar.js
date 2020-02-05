@@ -29,7 +29,7 @@ const VoiceBar = (props) => {
             let preprocessedTranscript = transcript
             let entities = window.vocalBIglobals.nerEngine.findNamedEntities( transcript, 'it' )
             for( let ent of entities ) {
-                console.log(ent)
+                //console.log(ent)
                 // TODO: this does not work because original string changes in length while we substitute
                 //preprocessedTranscript = substituteStringAtIndexes(preprocessedTranscript, ent.start, ent.end, 'variabile')
                 preprocessedTranscript = preprocessedTranscript.replace(ent.utteranceText, 'variabile')   

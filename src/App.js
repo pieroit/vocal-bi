@@ -15,6 +15,7 @@ window.vocalBIglobals = {
 	nerEngine: new NerManager({ languages: ['it'], threshold: 0.8 })
 }
 
+
 function App() {
 
 	let initialState = {
