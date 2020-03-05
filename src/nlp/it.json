@@ -1,0 +1,38 @@
+{
+    "intents" : {
+
+        "show_relation" : {
+            "utterances": [
+                "come varia %variabile_2% rispetto a %variabile_1%",
+                "%variabile_2% rispetto a %variabile_1%",
+                "%variabile_1% sulle x e %variabile_2% sulle y",
+                "%variabile_2% sulle y e %variabile_1% sulle x",
+                "relazione tra %variabile_1% e %variabile_2%"
+            ]
+        },
+
+        "show_distribution" : {
+            "utterances": [
+                "distribuzione %variabile%",
+                "come è distribuito %variabile%"
+            ]
+        },
+
+        "reset_plot" : {
+            "utterances": [
+                "crea nuovo grafico",
+                "cancella grafico",
+                "comincia da capo",
+                "resetta grafico"
+            ]
+        },
+
+        "group_by" : {
+            "utterances": [
+                "raggruppa %variabile%",
+                "fai gruppi per %variabile%",
+                "separa %variabile%"
+            ]
+        }
+    }
+}

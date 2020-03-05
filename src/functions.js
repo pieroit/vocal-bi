@@ -59,21 +59,3 @@ export const dropUndefined = (data, keys) => {
 
     return cleanData
 }
-
-export const trainNER = (columnNames) => {
-
-    let nerEngine = window.vocalBIglobals.nerEngine
-
-    columnNames.forEach((c) => {
-        nerEngine.addNamedEntityText(
-            'variabile',
-            c,
-            ['it'],
-            [c]
-        )
-    })
-}
-
-export const substituteStringAtIndexes = (str, start, end, placeHolder) => {
-    return str.substr(0, start) + placeHolder + str.substr(end + 1)
-}
