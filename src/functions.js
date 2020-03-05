@@ -1,4 +1,5 @@
 import Papa from 'papaparse'
+import LanguageManager from './nlp/LanguageManager'
 
 export const parseCSVandNotifyStore = (file, dispatch) => {
 
@@ -15,7 +16,7 @@ export const parseCSVandNotifyStore = (file, dispatch) => {
             parsedCSV.meta.expandedMetaFields = expandParsedMeta(parsedCSV)
 
             // train NER model to recognize column names
-            trainNER(parsedCSV.meta.fields)
+            window.languageManager.addEntities('variabile', parsedCSV.meta.fields)
             
             dispatch({
                 type      : 'DATA_LOADED',

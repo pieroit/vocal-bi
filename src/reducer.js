@@ -31,13 +31,25 @@ let reducer = ( state={}, action ) => {
             }
             
             let entities = action.body.entities
+
+            let foundVariabile = 0
             for( let ent of entities){
-                if(ent.entity == 'x'){
+                /* if(ent.entity == 'x'){
                     newState.variableOnXaxis = ent.columnName
                 }
                 if(ent.entity == 'y'){
                     newState.variableOnYaxis = ent.columnName
+                } */
+                if(ent.entity == 'variabile'){
+                    if(foundVariabile == 0) {
+                        newState.variableOnXaxis = ent.option
+                        foundVariabile++
+                    } else {
+                        newState.variableOnYaxis = ent.option
+                    }
+
                 }
+
             }
 
             

@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react'
 import { useStore, useDispatch } from 'react-redux'
 import { useDropzone } from 'react-dropzone'
-import { parseCSVandNotifyStore } from './functions'
+import { parseCSVandNotifyStore } from '../functions'
 
 // Easier upload lternative here:
 // https://react-dropzone-uploader.js.org/docs/quick-start 

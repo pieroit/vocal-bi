@@ -1,0 +1,712 @@
+{
+  "settings": {
+    "languages": [
+      "it"
+    ],
+    "keepStopwords": true,
+    "useNoneFeature": false
+  },
+  "nluManager": {
+    "settings": {},
+    "languages": [
+      "it"
+    ],
+    "intentDomains": {},
+    "domainManagers": {
+      "it": {
+        "settings": {
+          "language": "it",
+          "useNoneFeature": true,
+          "config": {
+            "activation": "leaky-relu",
+            "hiddenLayers": [],
+            "iterations": 20000,
+            "learningRate": 0.7,
+            "errorThresh": 0.00005,
+            "momentum": 0.5,
+            "deltaErrorThresh": 0.000001,
+            "maxDecimals": 9,
+            "leakyReluAlpha": 0.08,
+            "timeout": 120000
+          }
+        },
+        "language": "it",
+        "nluClassName": "BrainNLU",
+        "useMasterDomain": true,
+        "trainByDomain": false,
+        "keepStopwords": true,
+        "stemDict": {
+          "%variabile_1%,%variabile_2%,a,com,rispett,var": {
+            "domain": "default",
+            "intent": "show_relation"
+          },
+          "%variabile_1%,%variabile_2%,a,rispett": {
+            "domain": "default",
+            "intent": "show_relation"
+          },
+          "%variabile_1%,%variabile_2%,e,sull,sull,x,y": {
+            "domain": "default",
+            "intent": "show_relation"
+          },
+          "%variabile_1%,%variabile_2%,e,relazion,tra": {
+            "domain": "default",
+            "intent": "show_relation"
+          },
+          "%variabile%,distribu": {
+            "domain": "default",
+            "intent": "show_distribution"
+          },
+          "%variabile%,com,distribu,e": {
+            "domain": "default",
+            "intent": "show_distribution"
+          },
+          "cre,grafic,nuov": {
+            "domain": "default",
+            "intent": "reset_plot"
+          },
+          "cancell,grafic": {
+            "domain": "default",
+            "intent": "reset_plot"
+          },
+          "cap,cominc,da": {
+            "domain": "default",
+            "intent": "reset_plot"
+          },
+          "grafic,resett": {
+            "domain": "default",
+            "intent": "reset_plot"
+          },
+          "%variabile%,raggrupp": {
+            "domain": "default",
+            "intent": "group_by"
+          },
+          "%variabile%,fai,grupp,per": {
+            "domain": "default",
+            "intent": "group_by"
+          },
+          "%variabile%,separ": {
+            "domain": "default",
+            "intent": "group_by"
+          }
+        },
+        "intentDict": {
+          "show_relation": "default",
+          "show_distribution": "default",
+          "reset_plot": "default",
+          "group_by": "default"
+        },
+        "useStemDict": true,
+        "domains": {
+          "master_domain": {
+            "settings": {
+              "language": "it",
+              "useNoneFeature": true,
+              "config": {
+                "activation": "leaky-relu",
+                "hiddenLayers": [],
+                "iterations": 20000,
+                "learningRate": 0.7,
+                "errorThresh": 0.00005,
+                "momentum": 0.5,
+                "deltaErrorThresh": 0.000001,
+                "maxDecimals": 9,
+                "leakyReluAlpha": 0.08,
+                "timeout": 120000
+              }
+            },
+            "language": "it",
+            "keepStopwords": "it",
+            "docs": [
+              {
+                "intent": "show_relation",
+                "tokens": [
+                  "com",
+                  "var",
+                  "%variabile_2%",
+                  "rispett",
+                  "a",
+                  "%variabile_1%"
+                ]
+              },
+              {
+                "intent": "show_relation",
+                "tokens": [
+                  "%variabile_2%",
+                  "rispett",
+                  "a",
+                  "%variabile_1%"
+                ]
+              },
+              {
+                "intent": "show_relation",
+                "tokens": [
+                  "%variabile_1%",
+                  "sull",
+                  "x",
+                  "e",
+                  "%variabile_2%",
+                  "sull",
+                  "y"
+                ]
+              },
+              {
+                "intent": "show_relation",
+                "tokens": [
+                  "%variabile_2%",
+                  "sull",
+                  "y",
+                  "e",
+                  "%variabile_1%",
+                  "sull",
+                  "x"
+                ]
+              },
+              {
+                "intent": "show_relation",
+                "tokens": [
+                  "relazion",
+                  "tra",
+                  "%variabile_1%",
+                  "e",
+                  "%variabile_2%"
+                ]
+              },
+              {
+                "intent": "show_distribution",
+                "tokens": [
+                  "distribu",
+                  "%variabile%"
+                ]
+              },
+              {
+                "intent": "show_distribution",
+                "tokens": [
+                  "com",
+                  "e",
+                  "distribu",
+                  "%variabile%"
+                ]
+              },
+              {
+                "intent": "reset_plot",
+                "tokens": [
+                  "cre",
+                  "nuov",
+                  "grafic"
+                ]
+              },
+              {
+                "intent": "reset_plot",
+                "tokens": [
+                  "cancell",
+                  "grafic"
+                ]
+              },
+              {
+                "intent": "reset_plot",
+                "tokens": [
+                  "cominc",
+                  "da",
+                  "cap"
+                ]
+              },
+              {
+                "intent": "reset_plot",
+                "tokens": [
+                  "resett",
+                  "grafic"
+                ]
+              },
+              {
+                "intent": "group_by",
+                "tokens": [
+                  "raggrupp",
+                  "%variabile%"
+                ]
+              },
+              {
+                "intent": "group_by",
+                "tokens": [
+                  "fai",
+                  "grupp",
+                  "per",
+                  "%variabile%"
+                ]
+              },
+              {
+                "intent": "group_by",
+                "tokens": [
+                  "separ",
+                  "%variabile%"
+                ]
+              }
+            ],
+            "features": {
+              "com": 2,
+              "%variabile_2%": 5,
+              "rispett": 2,
+              "a": 2,
+              "%variabile_1%": 5,
+              "sull": 4,
+              "x": 2,
+              "e": 4,
+              "y": 2,
+              "distribu": 2,
+              "%variabile%": 5,
+              "grafic": 3,
+              "var": 1,
+              "relazion": 1,
+              "tra": 1,
+              "cre": 1,
+              "nuov": 1,
+              "cancell": 1,
+              "cominc": 1,
+              "da": 1,
+              "cap": 1,
+              "resett": 1,
+              "raggrupp": 1,
+              "fai": 1,
+              "grupp": 1,
+              "per": 1,
+              "separ": 1
+            },
+            "isEditing": false,
+            "className": "BrainNLU",
+            "classifier": {
+              "className": "BrainClassifier",
+              "settings": {
+                "language": "it",
+                "useNoneFeature": true,
+                "config": {
+                  "activation": "leaky-relu",
+                  "hiddenLayers": [],
+                  "iterations": 20000,
+                  "learningRate": 0.7,
+                  "errorThresh": 0.00005,
+                  "momentum": 0.5,
+                  "deltaErrorThresh": 0.000001,
+                  "maxDecimals": 9,
+                  "leakyReluAlpha": 0.08,
+                  "timeout": 120000
+                }
+              },
+              "labels": [],
+              "network": {
+                "sizes": [
+                  28,
+                  5
+                ],
+                "layers": [
+                  {
+                    "com": {},
+                    "var": {},
+                    "%variabile_2%": {},
+                    "rispett": {},
+                    "a": {},
+                    "%variabile_1%": {},
+                    "sull": {},
+                    "x": {},
+                    "e": {},
+                    "y": {},
+                    "relazion": {},
+                    "tra": {},
+                    "distribu": {},
+                    "%variabile%": {},
+                    "cre": {},
+                    "nuov": {},
+                    "grafic": {},
+                    "cancell": {},
+                    "cominc": {},
+                    "da": {},
+                    "cap": {},
+                    "resett": {},
+                    "raggrupp": {},
+                    "fai": {},
+                    "grupp": {},
+                    "per": {},
+                    "separ": {},
+                    "nonefeature": {}
+                  },
+                  {
+                    "show_relation": {
+                      "bias": 0.373882914,
+                      "weights": {
+                        "com": -0.308949053,
+                        "var": 0.312449366,
+                        "%variabile_2%": 4.075421333,
+                        "rispett": 1.986446619,
+                        "a": 1.986446619,
+                        "%variabile_1%": 4.075421333,
+                        "sull": 0.835731804,
+                        "x": 0.835731804,
+                        "e": 1.467576265,
+                        "y": 0.835731804,
+                        "relazion": 1.253243327,
+                        "tra": 1.253243327,
+                        "distribu": -0.832553267,
+                        "%variabile%": -1.026710153,
+                        "cre": -0.195030302,
+                        "nuov": -0.195030302,
+                        "grafic": -0.60496515,
+                        "cancell": -0.223431632,
+                        "cominc": -0.261954129,
+                        "da": -0.261954129,
+                        "cap": -0.261954129,
+                        "resett": -0.186503306,
+                        "raggrupp": -0.074115478,
+                        "fai": -0.064915776,
+                        "grupp": -0.064915776,
+                        "per": -0.064915776,
+                        "separ": -0.055125773,
+                        "nonefeature": -0.358288407
+                      }
+                    },
+                    "show_distribution": {
+                      "bias": 0.222819709,
+                      "weights": {
+                        "com": 0.179801956,
+                        "var": -0.291305304,
+                        "%variabile_2%": -0.823562026,
+                        "rispett": -0.291305304,
+                        "a": -0.291305304,
+                        "%variabile_1%": -0.823562026,
+                        "sull": -0.280912966,
+                        "x": -0.280912966,
+                        "e": -0.061150283,
+                        "y": -0.280912966,
+                        "relazion": -0.251343846,
+                        "tra": -0.251343846,
+                        "distribu": 9.487498283,
+                        "%variabile%": 2.696490049,
+                        "cre": -0.155670553,
+                        "nuov": -0.155670553,
+                        "grafic": -0.459552526,
+                        "cancell": -0.167593688,
+                        "cominc": -0.192179665,
+                        "da": -0.192179665,
+                        "cap": -0.192179665,
+                        "resett": -0.1362883,
+                        "raggrupp": -2.912048101,
+                        "fai": -0.974353194,
+                        "grupp": -0.974353194,
+                        "per": -0.974353194,
+                        "separ": -2.904607296,
+                        "nonefeature": -0.193288311
+                      }
+                    },
+                    "reset_plot": {
+                      "bias": 1.496540318,
+                      "weights": {
+                        "com": -0.25627923,
+                        "var": -0.209262222,
+                        "%variabile_2%": -0.882635534,
+                        "rispett": -0.454948962,
+                        "a": -0.454948962,
+                        "%variabile_1%": -0.882635534,
+                        "sull": -0.23124215,
+                        "x": -0.23124215,
+                        "e": -0.47470358,
+                        "y": -0.23124215,
+                        "relazion": -0.196444422,
+                        "tra": -0.196444422,
+                        "distribu": -0.435082138,
+                        "%variabile%": -2.085732698,
+                        "cre": 1.574849486,
+                        "nuov": 1.574849486,
+                        "grafic": 7.850600719,
+                        "cancell": 3.141433239,
+                        "cominc": 3.662734032,
+                        "da": 3.662734032,
+                        "cap": 3.662734032,
+                        "resett": 3.134316206,
+                        "raggrupp": -0.672812462,
+                        "fai": -0.38335681,
+                        "grupp": -0.38335681,
+                        "per": -0.38335681,
+                        "separ": -0.594480991,
+                        "nonefeature": -1.386535883
+                      }
+                    },
+                    "group_by": {
+                      "bias": 0.758852269,
+                      "weights": {
+                        "com": -1.321617842,
+                        "var": -0.143819541,
+                        "%variabile_2%": -0.495568663,
+                        "rispett": -0.294623494,
+                        "a": -0.294623494,
+                        "%variabile_1%": -0.495568663,
+                        "sull": -0.141886458,
+                        "x": -0.141886458,
+                        "e": -1.378743529,
+                        "y": -0.141886458,
+                        "relazion": -0.059058707,
+                        "tra": -0.059058707,
+                        "distribu": -6.895840168,
+                        "%variabile%": 6.144228935,
+                        "cre": -0.248891115,
+                        "nuov": -0.248891115,
+                        "grafic": -0.869278193,
+                        "cancell": -0.330487788,
+                        "cominc": -0.390047044,
+                        "da": -0.390047044,
+                        "cap": -0.390047044,
+                        "resett": -0.28989929,
+                        "raggrupp": 5.589182377,
+                        "fai": 1.865340352,
+                        "grupp": 1.865340352,
+                        "per": 1.865340352,
+                        "separ": 5.58554697,
+                        "nonefeature": -0.717388391
+                      }
+                    },
+                    "None": {
+                      "bias": 5.827283616,
+                      "weights": {
+                        "com": -0.199583307,
+                        "var": -0.11620044,
+                        "%variabile_2%": -1.890956044,
+                        "rispett": -1.008033752,
+                        "a": -1.008033752,
+                        "%variabile_1%": -1.890956044,
+                        "sull": -0.356097668,
+                        "x": -0.356097668,
+                        "e": -0.966304541,
+                        "y": -0.356097668,
+                        "relazion": -0.526824117,
+                        "tra": -0.526824117,
+                        "distribu": -1.353554606,
+                        "%variabile%": -4.438150883,
+                        "cre": -0.842755198,
+                        "nuov": -0.842755198,
+                        "grafic": -4.12031126,
+                        "cancell": -1.649134398,
+                        "cominc": -1.918922544,
+                        "da": -1.918922544,
+                        "cap": -1.918922544,
+                        "resett": -1.628422022,
+                        "raggrupp": -1.323950648,
+                        "fai": -0.451319516,
+                        "grupp": -0.451319516,
+                        "per": -0.451319516,
+                        "separ": -1.309324861,
+                        "nonefeature": 5.996677399
+                      }
+                    }
+                  }
+                ],
+                "trainOpts": {
+                  "iterations": 20000,
+                  "errorThresh": 0.00005,
+                  "deltaErrorThresh": 0.000001,
+                  "learningRate": 0.7,
+                  "momentum": 0.5,
+                  "leakyReluAlpha": 0.08,
+                  "maxDecimals": 9,
+                  "log": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "extraSentences": [
+      [
+        "it",
+        "come varia %variabile_2% rispetto a %variabile_1%"
+      ],
+      [
+        "it",
+        "%variabile_2% rispetto a %variabile_1%"
+      ],
+      [
+        "it",
+        "%variabile_1% sulle x e %variabile_2% sulle y"
+      ],
+      [
+        "it",
+        "%variabile_2% sulle y e %variabile_1% sulle x"
+      ],
+      [
+        "it",
+        "relazione tra %variabile_1% e %variabile_2%"
+      ],
+      [
+        "it",
+        "distribuzione %variabile%"
+      ],
+      [
+        "it",
+        "come è distribuito %variabile%"
+      ],
+      [
+        "it",
+        "crea nuovo grafico"
+      ],
+      [
+        "it",
+        "cancella grafico"
+      ],
+      [
+        "it",
+        "comincia da capo"
+      ],
+      [
+        "it",
+        "resetta grafico"
+      ],
+      [
+        "it",
+        "raggruppa %variabile%"
+      ],
+      [
+        "it",
+        "fai gruppi per %variabile%"
+      ],
+      [
+        "it",
+        "separa %variabile%"
+      ],
+      [
+        "it",
+        "come varia %variabile_2% rispetto a %variabile_1%"
+      ],
+      [
+        "it",
+        "%variabile_2% rispetto a %variabile_1%"
+      ],
+      [
+        "it",
+        "%variabile_1% sulle x e %variabile_2% sulle y"
+      ],
+      [
+        "it",
+        "%variabile_2% sulle y e %variabile_1% sulle x"
+      ],
+      [
+        "it",
+        "relazione tra %variabile_1% e %variabile_2%"
+      ],
+      [
+        "it",
+        "distribuzione %variabile%"
+      ],
+      [
+        "it",
+        "come è distribuito %variabile%"
+      ],
+      [
+        "it",
+        "crea nuovo grafico"
+      ],
+      [
+        "it",
+        "cancella grafico"
+      ],
+      [
+        "it",
+        "comincia da capo"
+      ],
+      [
+        "it",
+        "resetta grafico"
+      ],
+      [
+        "it",
+        "raggruppa %variabile%"
+      ],
+      [
+        "it",
+        "fai gruppi per %variabile%"
+      ],
+      [
+        "it",
+        "separa %variabile%"
+      ],
+      [
+        "it",
+        "come varia %variabile_2% rispetto a %variabile_1%"
+      ],
+      [
+        "it",
+        "%variabile_2% rispetto a %variabile_1%"
+      ],
+      [
+        "it",
+        "%variabile_1% sulle x e %variabile_2% sulle y"
+      ],
+      [
+        "it",
+        "%variabile_2% sulle y e %variabile_1% sulle x"
+      ],
+      [
+        "it",
+        "relazione tra %variabile_1% e %variabile_2%"
+      ],
+      [
+        "it",
+        "distribuzione %variabile%"
+      ],
+      [
+        "it",
+        "come è distribuito %variabile%"
+      ],
+      [
+        "it",
+        "crea nuovo grafico"
+      ],
+      [
+        "it",
+        "cancella grafico"
+      ],
+      [
+        "it",
+        "comincia da capo"
+      ],
+      [
+        "it",
+        "resetta grafico"
+      ],
+      [
+        "it",
+        "raggruppa %variabile%"
+      ],
+      [
+        "it",
+        "fai gruppi per %variabile%"
+      ],
+      [
+        "it",
+        "separa %variabile%"
+      ]
+    ]
+  },
+  "nerManager": {
+    "settings": {},
+    "threshold": 0.8,
+    "builtins": [
+      "Number",
+      "Ordinal",
+      "Percentage",
+      "Age",
+      "Currency",
+      "Dimension",
+      "Temperature",
+      "DateTime",
+      "PhoneNumber",
+      "IpAddress",
+      "Boolean",
+      "Email",
+      "Hashtag",
+      "URL"
+    ],
+    "namedEntities": {}
+  },
+  "slotManager": {},
+  "responses": {},
+  "actions": {},
+  "utteranceDict": {
+    "?": "help"
+  }
+}

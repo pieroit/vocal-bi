@@ -1,13 +1,14 @@
 
 import LanguageManager from './LanguageManager'
 
-// prepare language NER and classifier
-let nlp = new LanguageManager()
+// global to be accessed from tests
+let nlp
 
 // train classifier
 let trainNLPforTests = async () => {
     
-    await nlp.train()
+    // prepare language NER and classifier
+    nlp = await new LanguageManager()
 
     // entities can be added AFTER classifier training
     nlp.addEntities( 'variabile', ['sesso', 'età', 'prezzo', 'densità abitativa'] )

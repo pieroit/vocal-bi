@@ -3,12 +3,12 @@ import _ from 'lodash'
 import { useSelector } from 'react-redux'
 import { VictoryChart, VictoryAxis, VictoryGroup } from 'victory'
 import { VictoryBar, VictoryPie, VictoryLine, VictoryScatter } from 'victory'
-import { dropUndefined } from './functions'
+import { dropUndefined } from '../functions'
 import {
     detectTypeOfPlot,
     aggregateDataForDistributionPlot,
     aggregateDataForRelationPlot
-} from './plotDataPrep'
+} from '../plotDataPrep'
 
 function MainChart() {
 

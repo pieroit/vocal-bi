@@ -1,12 +1,13 @@
 
 import { NlpManager } from 'node-nlp-rn'
-import trainingData from './it.json'
+import savedModel from './model.json'
 
 class LanguageManager {
 
     constructor() {
 
         this.language = 'it'
+        this.trained  = false
 
         let engineConfig = {
             languages: [this.language],
@@ -14,10 +15,15 @@ class LanguageManager {
             useNoneFeature: false
         }
 
+        // build classifier
         this.NLP = new NlpManager(engineConfig)
+        
+        // load pretrained model from JSON
+        this.NLP.import(savedModel)
     }
 
-    async train() {
+    // TODO: not callable from the browser :(
+    async train(trainingData) {
 
         // TODO: load a pretrained model!
         let intents = trainingData['intents']
@@ -30,7 +36,6 @@ class LanguageManager {
         }
 
         await this.NLP.train()
-        //console.log(this.NLP)
     }
 
     addEntities(slotName, slotValues) {
