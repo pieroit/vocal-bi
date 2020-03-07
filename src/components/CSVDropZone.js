@@ -1,11 +1,12 @@
 import React, { useCallback } from 'react'
 import { useStore, useDispatch } from 'react-redux'
+import { Fab } from '@material-ui/core'
 import { useDropzone } from 'react-dropzone'
 import { parseCSVandNotifyStore } from '../functions'
 
 // Easier upload lternative here:
 // https://react-dropzone-uploader.js.org/docs/quick-start 
-function CSVDropZone(props) {
+let CSVDropZone = (props) => {
 
     // redux bindings
     let dispatch = useDispatch()
@@ -30,13 +31,16 @@ function CSVDropZone(props) {
 
     return (
         <div>
-            <div {...getRootProps()}>
-                <input {...getInputProps()} />
-                <h2>+  upload</h2>
-            </div>
-            <div onClick={loadDemoDataset}>
-                <h2>+  demo</h2>
-            </div>
+            <Fab size='large' variant='extended'>
+
+                <div {...getRootProps()}>
+                    <input {...getInputProps()} />
+                    <h2>+  upload</h2>
+                </div>
+                <div onClick={loadDemoDataset}>
+                    <h2>+  demo</h2>
+                </div>
+            </Fab>
         </div>
     )
 }

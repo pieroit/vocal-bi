@@ -3,6 +3,7 @@ import React from "react"
 import { useDispatch } from "react-redux"
 import axios from "axios"
 import SpeechRecognition from "react-speech-recognition"
+import { Mic as MicIcon} from '@material-ui/icons';
 import { substituteStringAtIndexes } from "../functions"
 
 let oldTranscript = '#token#'
@@ -47,8 +48,8 @@ const VoiceBar = (props) => {
 
     return (
         <div>
-            {/*<button onClick={resetTranscript}>Reset</button>*/}
-            <span>MIC: {transcript}</span>
+            <MicIcon style={{color: 'white', fontSize: 30}} />
+            <span>{transcript}</span>
         </div>
     )
 }

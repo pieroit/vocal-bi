@@ -23,7 +23,7 @@ function MetaPanel() {
 
 
 	return (
-		<div>
+		<div>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
             {metaJSX}
         </div>
 	)
