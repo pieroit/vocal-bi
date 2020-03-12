@@ -19,6 +19,7 @@ import VoiceBar from './VoiceBar'
 import CSVDropZone from './CSVDropZone'
 import MetaPanel from './MetaPanel'
 import MainChart from './MainChart'
+import Help from './Help'
 //import initialState from './initialStateDev'
 
 let App = () => {
@@ -45,7 +46,7 @@ let App = () => {
 				<Navigation pages={[
 					{
 						'label'    : 'Info',
-						'component': <h1>Info</h1>,
+						'component': <Help />,
 						'icon'     : <InfoIcon />
 					},
 					{

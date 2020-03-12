@@ -52,8 +52,10 @@ let reducer = ( state={}, action ) => {
 
             }
 
-            
+            break
 
+        case 'CHANGE_DATA_TYPE':
+            newState.parsedMeta.expandedMetaFields[action.fieldName] = action.fieldType
             break
 
         default:

@@ -1,5 +1,13 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import {
+    ExpansionPanel,
+    ExpansionPanelSummary,
+    ExpansionPanelDetails
+} from '@material-ui/core'
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
+
+import DataTypeToggle from './DataTypeToggle'
 
 function MetaPanel() {
 
@@ -12,18 +20,34 @@ function MetaPanel() {
         }
     })
 
-    let metaJSX = []
-    for(let metaField in metaFields) {
-        metaJSX.push(
-            <div key={metaField}>
-                <span>{metaField}: </span><span>{metaFields[metaField]}</span>
-            </div>
-        )
+    let metaJSX = (
+        <div>
+            Nessun dataset caricato
+        </div>
+    )
+
+    if( Object.keys(metaFields).length > 0 ){
+        metaJSX = []
+        for(let metaField in metaFields) {
+            metaJSX.push(
+                <ExpansionPanel key={metaField}>
+                    <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+                        {metaField}
+
+                        <DataTypeToggle varName={metaField} />
+
+                    </ExpansionPanelSummary>
+                    <ExpansionPanelDetails>
+                        {metaFields[metaField]}
+                    </ExpansionPanelDetails>
+
+                </ExpansionPanel>
+            )
+        }
     }
 
-
 	return (
-		<div>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+		<div>
             {metaJSX}
         </div>
 	)
