@@ -14,20 +14,21 @@ let trainNLPforTests = async () => {
     nlp.addEntities( 'variabile', ['sesso', 'età', 'prezzo', 'densità abitativa'] )
 }
 
-it('Trains intent classifier', async () => {
+it('Classifies intents and extracts entities', async () => {
 
     await trainNLPforTests()
     
-    let res = await nlp.parse('fammi vedere la distribuzione del sesso')
+    let res = await nlp.parse("nuovo grafico")
+    expect(res.intent).toBe('reset_plot')
+    
+    res = await nlp.parse('fammi vedere la distribuzione del sesso')
     expect(res.intent).toBe('show_distribution')
     expect(res.entities.length).toBeGreaterThan(0)
     expect(res.entities[0].option).toBe('sesso')
     
-    res = await nlp.parse("nuovo grafico")
-    expect(res.intent).toBe('reset_plot')
 }) 
 
-it('Extracts two entities of the same type', async () => {
+it('Extracts two entities from one utterance', async () => {
     
     let res = await nlp.parse('Prezzo rispetto a densita Abitativa')
     expect(res.intent).toBe('show_relation')

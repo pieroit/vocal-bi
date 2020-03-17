@@ -7,7 +7,6 @@ class LanguageManager {
     constructor() {
 
         this.language = 'it'
-        this.trained  = false
 
         let engineConfig = {
             languages: [this.language],
@@ -22,7 +21,7 @@ class LanguageManager {
         this.NLP.import(savedModel)
     }
 
-    // TODO: not callable from the browser :(
+    // this is not run in the browser, only fromt he command line "npm run train"
     async train(trainingData) {
 
         // TODO: load a pretrained model!

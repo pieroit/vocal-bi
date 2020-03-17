@@ -25,6 +25,7 @@ import Help from './Help'
 let App = () => {
 
 	let initialState = {
+		currentPage      : "Upload",
 		parsedData       : undefined,
 		parsedMeta       : undefined,
 		variableOnXaxis  : undefined,
@@ -43,28 +44,24 @@ let App = () => {
 					</Toolbar>
 				</AppBar>
 
-				<Navigation pages={[
-					{
-						'label'    : 'Info',
+				<Navigation pages={{
+					'Info': {
 						'component': <Help />,
 						'icon'     : <InfoIcon />
 					},
-					{
-						'label'    : 'Upload',
+					'Upload': {
 						'component': <CSVDropZone />,
 						'icon'     : <PublishIcon />
 					},
-					{
-						'label'    : 'Home',
+					'Home': {
 						'component': <MainChart />,
 						'icon'     : <BarChartIcon />
 					},
-					{
-						'label'    : 'Settings',
+					'Settings': {
 						'component': <MetaPanel />,
 						'icon'     : <SettingsIcon />
 					},
-				]}/>
+				}}/>
 			</div>
 		</Provider>
 	);

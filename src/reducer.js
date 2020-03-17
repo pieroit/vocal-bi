@@ -6,11 +6,16 @@ let reducer = ( state={}, action ) => {
     }
 
     switch(action.type) {
+
+        case 'CHANGE_PAGE':
+            newState.currentPage = action.toPage
+            break
         
         case 'DATA_LOADED':
 
-            newState.parsedData = action.parsedCSV.data
-            newState.parsedMeta = action.parsedCSV.meta
+            newState.parsedData  = action.parsedCSV.data
+            newState.parsedMeta  = action.parsedCSV.meta
+            newState.currentPage = "Home"
             break
 
         case 'PARSED_INTENT':

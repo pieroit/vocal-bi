@@ -1,6 +1,8 @@
 
 
 import React, { useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import _ from 'lodash'
 import {
 	BottomNavigation, BottomNavigationAction
  } from '@material-ui/core'
@@ -8,10 +10,14 @@ import {
 
 let Navigation = (props) => {
 
-    let [currentTab, setCurrentTab] = useState(1)
+    let currentTab = useSelector(state => state.currentPage)
+    let dispatch   = useDispatch()
 
-    let changeTab = (event, newValue) => {
-        setCurrentTab(newValue)
+    let changeTab = (event, goToPage) => {
+        dispatch({
+            type   : 'CHANGE_PAGE',
+            toPage : goToPage
+        })
     }
 
     let style = {
@@ -20,9 +26,9 @@ let Navigation = (props) => {
         bottom: 0
     }
 
-    let pagesJSX = props.pages.map((p, index) => {
+    let pagesJSX = _.map(props.pages, (p, label) => {
         return (
-            <BottomNavigationAction key={index} label={p.label} value={index} icon={p.icon} />
+            <BottomNavigationAction key={label} label={label} value={label} icon={p.icon} />
         )
     })
 
