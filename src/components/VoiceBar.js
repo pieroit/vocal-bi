@@ -1,10 +1,8 @@
 
 import React from "react"
 import { useDispatch } from "react-redux"
-import axios from "axios"
 import SpeechRecognition from "react-speech-recognition"
-import { Mic as MicIcon} from '@material-ui/icons';
-import { substituteStringAtIndexes } from "../functions"
+import { Mic as MicIcon} from '@material-ui/icons'
 
 let oldTranscript = '#token#'
 

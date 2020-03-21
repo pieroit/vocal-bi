@@ -3,9 +3,11 @@ import _ from 'lodash'
 import { useSelector } from 'react-redux'
 import { VictoryChart, VictoryAxis, VictoryGroup } from 'victory'
 import { VictoryBar, VictoryPie, VictoryLine, VictoryScatter } from 'victory'
+
+import Suggestions from './Suggestions'
 import { dropUndefined } from '../functions'
+import composeChartFromState from '../composeChartFromState'
 import {
-    detectTypeOfPlot,
     aggregateDataForDistributionPlot,
     aggregateDataForRelationPlot
 } from '../plotDataPrep'
@@ -32,7 +34,7 @@ function MainChart() {
     if(!vizX) {
         // TODO: put here example instructions component
         return (
-            <h1>Puoi dire mostra ....</h1>
+            <Suggestions />
         )
     }
 
@@ -42,7 +44,8 @@ function MainChart() {
 
     // detect required type of chart
     // TODO: should take into account explicitly requested type
-    let detectedTypeOfPlot = detectTypeOfPlot(axisVariables, vizMetadata.expandedMetaFields, vizIsDistribution)
+    let detectedTypeOfPlot = 
+            composeChartFromState(axisVariables, vizMetadata.expandedMetaFields, vizIsDistribution)
     let ChartType  = detectedTypeOfPlot.plotType
     let horizontal = detectedTypeOfPlot.horizontal || false
     let metric     = detectedTypeOfPlot.metric

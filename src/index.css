@@ -17,7 +17,7 @@ body {
 
 #page {
   flex: 90%;
-  background-color: pink;
+  background-color: rgb(240, 240, 250);
   overflow-y: scroll;
 }
 

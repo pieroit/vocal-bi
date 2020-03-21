@@ -31,7 +31,8 @@
             "utterances": [
                 "raggruppa %variabile%",
                 "fai gruppi per %variabile%",
-                "separa %variabile%"
+                "separa %variabile%",
+                "colora in base a %variabile%"
             ]
         }
     }

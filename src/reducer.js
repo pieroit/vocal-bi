@@ -23,15 +23,19 @@ let reducer = ( state={}, action ) => {
             let intent   = action.body.intent
 
             // reset X and Y axis
-            if( ['reset_plot', 'show_relation', 'show_distribution'].includes(intent.name) ){
+            if( ['reset_plot', 'show_relation', 'show_distribution'].includes(intent) ){
                 newState.variableOnXaxis = undefined
                 newState.variableOnYaxis = undefined
             }
 
-            if( intent.name == 'show_relation' ) {
+            if( intent == 'reset_plot' ) {
+
+            }
+
+            if( intent == 'show_relation' ) {
                 newState.showDistribution = false
             }
-            if( intent.name == 'show_distribution' ) {
+            if( intent == 'show_distribution' ) {
                 newState.showDistribution = true
             }
             
