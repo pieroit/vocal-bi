@@ -27,7 +27,7 @@ export const parseCSVandNotifyStore = (file, dispatch) => {
 }
 
 export const expandParsedMeta = (parsedCSV) => {
-    console.log(parsedCSV.meta.fields)
+    
     let samplePoint = parsedCSV.data[0]
     let expandedMetaFields = {}
     for (let field of parsedCSV.meta.fields) {

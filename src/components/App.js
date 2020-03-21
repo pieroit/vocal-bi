@@ -9,7 +9,8 @@ import {
 	Settings as SettingsIcon,
 	Publish as PublishIcon,
 	Info as InfoIcon,
-	BarChart as BarChartIcon
+	//BarChart as BarChartIcon,
+	Visibility as EyeIcon
 } from '@material-ui/icons'
 
 import LanguageManager from '../nlp/LanguageManager'
@@ -21,18 +22,11 @@ import CSVDropZone from './CSVDropZone'
 import MetaPanel from './MetaPanel'
 import MainChart from './MainChart'
 import Help from './Help'
-//import initialState from './initialStateDev'
+import initialState from './../initialState'
+
 
 let App = () => {
 
-	let initialState = {
-		currentPage: "Upload",
-		parsedData: undefined,
-		parsedMeta: undefined,
-		variableOnXaxis: undefined,
-		variableOnYaxis: undefined,
-		showDistribution: false
-	}
 	let store = createStore(reducer, initialState)
 
 	let pages = {
@@ -46,7 +40,7 @@ let App = () => {
 		},
 		'Home': {
 			'component': <MainChart />,
-			'icon': <BarChartIcon />
+			'icon': <EyeIcon />
 		},
 		'Settings': {
 			'component': <MetaPanel />,
@@ -57,7 +51,7 @@ let App = () => {
 	return (
 		<Provider store={store}>
 			<div id='main'>
-				
+
 				<div id='header'>
 					<AppBar position='sticky'>
 						<Toolbar>

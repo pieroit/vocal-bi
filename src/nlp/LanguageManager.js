@@ -17,14 +17,18 @@ class LanguageManager {
         // build classifier
         this.NLP = new NlpManager(engineConfig)
         
+        // TODO: is the above config necessary?
+        // TODO: Load from file should be in another method (import gets always called otherwise!)
+        // TODO: fix loop between training and predicting
         // load pretrained model from JSON
         this.NLP.import(savedModel)
+
+        console.log(this.NLP)
     }
 
-    // this is not run in the browser, only fromt he command line "npm run train"
+    // this is not run in the browser, only from the command line "npm run train"
     async train(trainingData) {
 
-        // TODO: load a pretrained model!
         let intents = trainingData['intents']
         for( let intent in intents ) {
             //console.log('training', intent)
@@ -53,6 +57,7 @@ class LanguageManager {
 
         // find entities
         let entities = this.NLP.nerManager.findNamedEntities( utterance, this.language )
+        console.log('ENTITIES', entities)
 
         // manually substitute entities to simplify classification
         for( let ent of entities ) {

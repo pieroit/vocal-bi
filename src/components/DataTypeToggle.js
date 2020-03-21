@@ -46,11 +46,20 @@ let DataTypeToggle = (props) => {
 
     let typeInfo = allTypes[varType]
 
-    console.log(varName, varType, typeInfo)
+    let handleChange = (e, v) => {
+        e.stopPropagation()
+        if(v){
+            dispatch({
+                type: 'CHANGE_DATA_TYPE',
+                fieldName: varName,
+                fieldType: v
+            })
+        }
+    }
+
     let buttonsJSX = _.map(allTypes, (v, k) => {
 
         let Icon = v.icon
-        console.log(k)
         return (
             <ToggleButton
                 key={k}
@@ -67,16 +76,7 @@ let DataTypeToggle = (props) => {
             exclusive
             size='small'
             value={varType}
-            onChange={(e, v)=>{
-                e.stopPropagation()
-                if(v){
-                    dispatch({
-                        type: 'CHANGE_DATA_TYPE',
-                        fieldName: varName,
-                        fieldType: v
-                    })
-                }
-            }}
+            onChange={handleChange}
         >
             {buttonsJSX}
         </ToggleButtonGroup>
