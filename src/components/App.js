@@ -1,7 +1,7 @@
 import React from 'react'
 import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
-import logger from 'redux-logger'
+import { createLogger } from 'redux-logger'
 
 import {
 	AppBar, Toolbar,
@@ -28,6 +28,10 @@ import initialState from './../initialState'
 
 let App = () => {
 
+	let logger = createLogger({
+		collapsed: true,
+		diff: true
+	})
 	let storeMiddleware = applyMiddleware(logger)
 	let store = createStore(reducer, initialState, storeMiddleware)
 
