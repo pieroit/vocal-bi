@@ -1,6 +1,7 @@
 import React from 'react'
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
+import logger from 'redux-logger'
 
 import {
 	AppBar, Toolbar,
@@ -27,7 +28,8 @@ import initialState from './../initialState'
 
 let App = () => {
 
-	let store = createStore(reducer, initialState)
+	let storeMiddleware = applyMiddleware(logger)
+	let store = createStore(reducer, initialState, storeMiddleware)
 
 	let pages = {
 		'Info': {

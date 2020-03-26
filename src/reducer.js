@@ -71,8 +71,6 @@ let reducer = ( state={}, action ) => {
             console.warn(`Action ${action.type} unknonwn`)
     }
 
-    console.warn('Action', action)
-    console.warn('New state', newState)
     return newState
 }
 

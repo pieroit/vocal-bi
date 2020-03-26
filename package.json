@@ -20,6 +20,7 @@
     "react-scripts": "3.3.0",
     "react-speech-recognition": "^2.0.4",
     "redux": "^4.0.5",
+    "redux-logger": "^3.0.6",
     "victory": "^34.0.0"
   },
   "scripts": {
