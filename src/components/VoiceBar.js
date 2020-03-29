@@ -25,6 +25,7 @@ const VoiceBar = (props) => {
     setTimeout( async ()=> {
         if(transcript == oldTranscript){
 
+            // parse utterance
             let parsedCommand = await window.languageManager.parse(transcript)
 
             // reset utterance tracker

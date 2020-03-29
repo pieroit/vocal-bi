@@ -1,7 +1,7 @@
 import React from 'react'
 import _ from 'lodash'
 import { useSelector } from 'react-redux'
-import { VictoryChart, VictoryAxis, VictoryGroup } from 'victory'
+import { VictoryChart, VictoryAxis, VictoryLabel, VictoryGroup } from 'victory'
 import { VictoryBar, VictoryPie, VictoryLine, VictoryScatter } from 'victory'
 
 import Suggestions from './Suggestions'
@@ -62,6 +62,7 @@ function MainViz() {
 
     console.log('DISTRIBUTION', vizIsDistribution)
     console.log('VARIABLES', axisVariables)
+    console.log('GROUPING', axisVariables, metric)
     console.log('PLOT', detectedTypeOfPlot)
     console.log('DATA', vizCleanData)
     console.log('DATA X', _.uniq( _.map(vizCleanData, axisVariables['x']) ) )
@@ -73,10 +74,18 @@ function MainViz() {
     return (
         <div>
             <VictoryChart
+                domainPadding={50}
                 padding={80}
+                height={window.innerHeight * 0.7}
             >
                 
-                <VictoryAxis label={axisVariables['x']} />
+                <VictoryAxis
+                    label={axisVariables['x']}
+                    tickLabelComponent={<VictoryLabel angle={-80} textAnchor={'end'} />}
+                    style={{
+                        axisLabel: {padding: 60}
+                    }}
+                />
 
                 <VictoryAxis
                     dependentAxis

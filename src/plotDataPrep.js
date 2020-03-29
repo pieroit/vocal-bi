@@ -1,18 +1,9 @@
 
 import _ from 'lodash'
+import { histogram as d3Histogram } from 'd3-array'
 
 export const aggregateDataForDistributionPlot = (dataToBeAggregated, variablesAxis, aggregationMetric) => {
-    ////// WORK HERE ///////
-    /*
-    'plotType'  : VictoryBar,
-    'metric'    : {
-        'metricType': 'histogram',
-        'metricOnAxis': 'x'
-    }
-    */
-    console.log(variablesAxis, aggregationMetric)
 
-    // ASSUMING BOTH VARIABLES ARE DEFINED
     let x = variablesAxis['x']
     let y = variablesAxis['y']
     let metricType   = aggregationMetric['metricType']
@@ -21,7 +12,25 @@ export const aggregateDataForDistributionPlot = (dataToBeAggregated, variablesAx
     let groupingVariable  = metricOnVariable
 
     // first, group data
-    let groups = _.groupBy(dataToBeAggregated, groupingVariable)
+    let groups
+    if(metricType == 'histogram'){
+        let histGenerator = d3Histogram()
+            .value( (d) => d[groupingVariable] )
+            .thresholds(10)
+
+        let bins = histGenerator(dataToBeAggregated)
+        console.log(bins)
+        groups = {}
+        bins.map( (b) => {
+            let groupName = `${b.x0}-${b.x1}`
+            delete b.x0
+            delete b.x1
+            groups[groupName] = b
+        })
+    } else {
+        groups = _.groupBy(dataToBeAggregated, groupingVariable)
+    }
+
     console.warn(groupingVariable, groups)
 
     // ... then, run metric on each group
@@ -31,12 +40,7 @@ export const aggregateDataForDistributionPlot = (dataToBeAggregated, variablesAx
         let groupValues = _.map( groups[g], metricOnVariable )
         
         // run aggregation function
-        let groupAggregatedValue
-        if(metricType == 'count') {
-            groupAggregatedValue = groupValues.length
-        } else {
-            throw Error(`Metric "${metricType}" not implemented`)
-        }
+        let groupAggregatedValue = groupValues.length
         
         // save data point
         aggregatedData.push({
@@ -50,14 +54,6 @@ export const aggregateDataForDistributionPlot = (dataToBeAggregated, variablesAx
 }
 
 export const aggregateDataForRelationPlot = (dataToBeAggregated, variablesAxis, aggregationMetric) => {
-    ////// WORK HERE ///////
-        /*'plotType'  : VictoryBar,
-        'horizontal': true,
-        'metric'    : {
-            'metricType': 'mean',
-            'metricOnAxis': 'x'
-        }*/
-    console.log(variablesAxis, aggregationMetric)
 
     // ASSUMING BOTH VARIABLES ARE DEFINED
     let x = variablesAxis['x']

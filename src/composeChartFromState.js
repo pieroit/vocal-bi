@@ -4,10 +4,11 @@ import { VictoryBar, VictoryPie, VictoryLine, VictoryScatter } from 'victory'
 
 let composeChartFromState = (variablesAxis, variablesTypes, isDistribution) => {
 	
-	console.log(variablesAxis, variablesTypes, isDistribution)
+	console.log('CHART INFO', variablesAxis, variablesTypes, isDistribution)
 	let typeOfX = variablesTypes[variablesAxis.x]
     let typeOfY = variablesTypes[variablesAxis.y]
     let distributionOrRelation = ( isDistribution ? 'distribution' : 'relation' )
+    console.log(typeOfX, typeOfY, distributionOrRelation)
 
 	// top level keys are distribution vs relation, then x types, then y types  
     let plotTypeTree = {

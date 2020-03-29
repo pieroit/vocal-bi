@@ -26,6 +26,16 @@ import Help from './Help'
 import initialState from './../initialState'
 
 
+// prepare NLP
+window.languageManager = new LanguageManager()
+
+// necessary when redux state is loaded via ajax
+if(initialState.parsedData) {
+	// train NER model to recognize column names
+	window.languageManager.addEntities('variabile', initialState.parsedMeta.fields)
+}
+
+
 let App = () => {
 
 	let logger = createLogger({

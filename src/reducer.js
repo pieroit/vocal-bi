@@ -1,4 +1,5 @@
 
+
 let reducer = ( state={}, action ) => {
     
     let newState = {
@@ -44,12 +45,6 @@ let reducer = ( state={}, action ) => {
 
             let foundVariabile = 0
             for( let ent of entities){
-                /* if(ent.entity == 'x'){
-                    newState.variableOnXaxis = ent.columnName
-                }
-                if(ent.entity == 'y'){
-                    newState.variableOnYaxis = ent.columnName
-                } */
                 if(ent.entity == 'variabile'){
                     if(foundVariabile == 0) {
                         newState.variableOnXaxis = ent.option

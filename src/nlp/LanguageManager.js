@@ -57,7 +57,7 @@ class LanguageManager {
 
         // find entities
         let entities = this.NLP.nerManager.findNamedEntities( utterance, this.language )
-        console.log('ENTITIES', entities)
+        //console.log('ENTITIES', entities)
 
         // manually substitute entities to simplify classification
         for( let ent of entities ) {
