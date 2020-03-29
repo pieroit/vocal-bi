@@ -26,6 +26,7 @@ let reducer = ( state={}, action ) => {
             if( ['reset_plot', 'show_relation', 'show_distribution'].includes(intent) ){
                 newState.variableOnXaxis = undefined
                 newState.variableOnYaxis = undefined
+                newState.currentPage = 'Home'
             }
 
             if( intent == 'reset_plot' ) {

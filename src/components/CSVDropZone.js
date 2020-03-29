@@ -1,6 +1,7 @@
 import React, { useCallback } from 'react'
 import { useStore, useDispatch } from 'react-redux'
-import { Fab } from '@material-ui/core'
+import { Button } from '@material-ui/core'
+import UploadIcon from '@material-ui/icons/Publish'
 import { useDropzone } from 'react-dropzone'
 import { parseCSVandNotifyStore } from '../functions'
 
@@ -24,23 +25,56 @@ let CSVDropZone = (props) => {
     }
     let { getRootProps, getInputProps } = useDropzone(dropzoneOptions)
     
-    let loadDemoDataset = () => {
-        let demoDatasetURL = 'demo_dataset.csv'
+    let loadDemoDataset = (demoDatasetURL) => {
         parseCSVandNotifyStore(demoDatasetURL, dispatch)
     }
 
-    return (
-        <div>
-            <Fab size='large' variant='extended'>
+    let buttonStyle = {
+        'width': '200px'
+    }
 
+    let demoDatasets = [
+        {
+            'text': 'Demo pollo',
+            'url' : 'polli.csv'
+        },
+        {
+            'text': 'Demo titanic',
+            'url' : 'titanic.csv'
+        },
+        {
+            'text': 'Demo impianti',
+            'url' : 'impianti.csv'
+        },
+    ]
+    let demoDatasetsJSX = demoDatasets.map( (d) => {
+        return (
+            <Button
+                key={d.url}
+                size='large'
+                variant='contained'
+                onClick={ () => loadDemoDataset(d.url) }
+                startIcon={ <UploadIcon/> }
+                style={buttonStyle}
+            >
+                {d.text}
+            </Button>
+        )
+    } )
+
+    return (
+        <div className='vertical-buttons-list'>
+            <Button size='large' variant='contained' color='primary'
+                startIcon={ <UploadIcon/> } style={buttonStyle}
+            >
                 <div {...getRootProps()}>
                     <input {...getInputProps()} />
-                    <h2>+  upload</h2>
+                    Upload CSV
                 </div>
-                <div onClick={loadDemoDataset}>
-                    <h2>+  demo</h2>
-                </div>
-            </Fab>
+            </Button>
+
+            {demoDatasetsJSX}
+            
         </div>
     )
 }

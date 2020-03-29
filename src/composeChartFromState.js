@@ -51,7 +51,7 @@ let composeChartFromState = (variablesAxis, variablesTypes, isDistribution) => {
                 },
                 'category' : {
                     'plotType'  : VictoryBar,
-                    'horizontal': true,
+                    'horizontal': false,
                     'metric'    : {
                         'metricType': 'mean',
                         'metricOnAxis': 'x'

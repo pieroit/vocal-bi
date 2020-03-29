@@ -21,7 +21,7 @@ import VoiceBar from './VoiceBar'
 import Footer from './Footer'
 import CSVDropZone from './CSVDropZone'
 import MetaPanel from './MetaPanel'
-import MainChart from './MainChart'
+import MainChart from './MainViz'
 import Help from './Help'
 import initialState from './../initialState'
 

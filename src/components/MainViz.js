@@ -12,7 +12,7 @@ import {
     aggregateDataForRelationPlot
 } from '../plotDataPrep'
 
-function MainChart() {
+function MainViz() {
 
     let vizData           = useSelector(state => state.parsedData)
     let vizMetadata       = useSelector(state => state.parsedMeta)
@@ -49,13 +49,6 @@ function MainChart() {
     let ChartType  = detectedTypeOfPlot.plotType
     let horizontal = detectedTypeOfPlot.horizontal || false
     let metric     = detectedTypeOfPlot.metric
-    
-    console.log('DISTRIBUTION', vizIsDistribution)
-    console.log('VARIABLES', axisVariables)
-    console.log('PLOT', detectedTypeOfPlot)
-    console.log('DATA', vizCleanData)
-    console.log('DATA X', _.uniq( _.map(vizCleanData, axisVariables['x']) ) )
-    console.log('DATA Y', _.uniq( _.map(vizCleanData, axisVariables['y']) ) )
 
     // Aggregate data if necessary
     if(metric){
@@ -66,6 +59,14 @@ function MainChart() {
             vizCleanData = aggregateDataForRelationPlot(vizCleanData, axisVariables, metric)
         }
     }
+
+    console.log('DISTRIBUTION', vizIsDistribution)
+    console.log('VARIABLES', axisVariables)
+    console.log('PLOT', detectedTypeOfPlot)
+    console.log('DATA', vizCleanData)
+    console.log('DATA X', _.uniq( _.map(vizCleanData, axisVariables['x']) ) )
+    console.log('DATA Y', _.uniq( _.map(vizCleanData, axisVariables['y']) ) )
+    console.log('AGGREGATED DATA', vizCleanData)
 
     // TODO: sorting
     
@@ -96,4 +97,4 @@ function MainChart() {
     )
 }
 
-export default MainChart
+export default MainViz
