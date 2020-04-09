@@ -14,5 +14,7 @@ nlp.train(trainingData).then((res)=>{
     let modelPath = __dirname + '/model.json'
     fs.writeFileSync(modelPath, model)
 
-    console.log('Model saved at ' + modelPath)
+    console.log('Model saved as ' + modelPath)
+}).catch((err) => {
+    console.error(err)
 })

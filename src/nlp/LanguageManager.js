@@ -31,7 +31,7 @@ class LanguageManager {
 
         let intents = trainingData['intents']
         for( let intent in intents ) {
-            //console.log('training', intent)
+            console.log('\ttraining', intent)
             for( let utterance of intents[intent]['utterances'] ) {
                 //console.log(this.language, utterance, intent)
                 this.NLP.addDocument(this.language, utterance, intent)

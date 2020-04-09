@@ -1,6 +1,26 @@
 
 import _ from 'lodash'
-import { histogram as d3Histogram } from 'd3-array'
+//import { histogram as d3Histogram } from 'd3-array'
+import { histogram } from 'd3-array'
+import { scaleLinear, scaleSequential, scaleOrdinal } from 'd3-scale'
+import { schemeCategory10 } from 'd3-scale-chromatic'
+
+const composeDataAggregationFunction = (slug, onColumn) => {
+    let aggregationFunctions = {
+        'sum'  : _.sum,
+        'mean' : function(g){
+            return g.stat.mean(onColumn)
+        },
+        'count': (arr) => arr.length
+    }
+
+    let aggregationFunction = aggregationFunctions[slug]
+    if(aggregationFunction) {
+        return aggregationFunction
+    } else {
+        throw Error(`Metric "${slug}" not implemented`)
+    }
+}
 
 export const aggregateDataForDistributionPlot = (dataToBeAggregated, variablesAxis, aggregationMetric) => {
 
@@ -15,7 +35,7 @@ export const aggregateDataForDistributionPlot = (dataToBeAggregated, variablesAx
     // first, group data
     let groups
     if(metricType == 'histogram'){
-        let histGenerator = d3Histogram()
+        let histGenerator = histogram()
             .value( (d) => d[groupingVariable] )
             .thresholds(10)
 
@@ -69,34 +89,42 @@ export const aggregateDataForRelationPlot = (dataToBeAggregated, variablesAxis, 
     }
 
     // first, group data
-    let groups = _.groupBy(dataToBeAggregated, groupingVariable)
-    console.log(groupingVariable, groups)
+    let groups = dataToBeAggregated.groupBy(groupingVariable)
 
-    // ... then, run metric on each group
-    let aggregatedData = []
-    for( let g in groups ){
-        // extract values for the group
-        let groupValues = _.map( groups[g], metricOnVariable )
-        
-        // run aggregation function
-        let groupAggregatedValue
-        if(metricType == 'count') {
-            groupAggregatedValue = groupValues.length
-        } else if(metricType == 'sum') {
-            groupAggregatedValue = _.sum(groupValues)
-        } else if(metricType == 'mean') {
-            groupAggregatedValue = _.mean(groupValues)
-        } else {
-            throw Error(`Metric "${metricType}" not implemented`)
-        }
-        
-        // save data point
-        aggregatedData.push({
-            [groupingVariable]: g,
-            [metricOnVariable]: groupAggregatedValue
-        })
+    // run aggregation function
+    console.warn(groups)
+    let aggregationFunction = composeDataAggregationFunction(metricType, metricOnVariable)
+    let aggregatedData = groups.aggregate(aggregationFunction, groupingVariable)
+    console.warn(aggregatedData)
+    return aggregatedData
+}
+
+
+/**
+ * Add a column to DataFrame containing color (for plotting)
+ */
+export const createColorColumn = (df, coloringColumn, info) => {
+
+    let variableType = info.expandedMetaFields[coloringColumn]
+    let colorPalette
+
+    if(variableType == 'number') {
+        let min = df.stat.min(coloringColumn)
+        let max = df.stat.max(coloringColumn)
+        colorPalette = scaleLinear()
+            .domain([min, max])
+            .range(['blue', 'red'])
+
+    } else {
+        let uniques = df.unique(coloringColumn)
+        colorPalette = scaleOrdinal()
+            .domain(uniques)
+            .range(schemeCategory10)
     }
 
-    console.log('GROUPED', aggregatedData)
-    return aggregatedData
+    let dfColored = df.withColumn('color', (row)=>{
+        return colorPalette( row.get(coloringColumn) )
+    })
+
+    return dfColored
 }

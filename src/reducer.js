@@ -5,6 +5,8 @@
 let resetPlot = (newState) => {
     newState.variableOnXaxis = undefined
     newState.variableOnYaxis = undefined
+    newState.variableOnColorAxis = undefined
+    newState.showDistribution = false
     return newState
 }
 
@@ -52,6 +54,12 @@ let reducer = ( state={}, action ) => {
             }
             if( intent == 'group_by' ) {
                 newState.variableOnColorAxis = entities[0].option
+                break   // TODO: not elegant at all
+            }
+            if( intent == 'switch_axis' ) {
+                let tmp = newState.variableOnYaxis
+                newState.variableOnYaxis = newState.variableOnXaxis
+                newState.variableOnXaxis = tmp
                 break   // TODO: not elegant at all
             }
 

@@ -1,5 +1,4 @@
 import Papa from 'papaparse'
-import DataFrame from 'dataframe-js'
 import LanguageManager from './nlp/LanguageManager'
 
 export const parseCSVandNotifyStore = (file, dispatch) => {
@@ -17,9 +16,6 @@ export const parseCSVandNotifyStore = (file, dispatch) => {
             // enrich metadata
             parsedCSV.meta.expandedMetaFields = expandParsedMeta(parsedCSV)
 
-            // convert to DataFrame
-            parsedCSV.data = new DataFrame(parsedCSV.data)
-            console.log(parsedCSV)
             // train NER model to recognize column names
             window.languageManager.addEntities('variabile', parsedCSV.meta.fields)
             
@@ -45,23 +41,4 @@ export const expandParsedMeta = (parsedCSV) => {
         }
     }
     return expandedMetaFields
-}
-
-export const dropUndefined = (data, keys) => {
-
-    let cleanData = []
-
-    for (let d of data) {
-        let allKeysAreDefined = true
-        for (let k of keys) {
-            if (d[k] == undefined) {
-                allKeysAreDefined = false
-            }
-        }
-        if (allKeysAreDefined) {
-            cleanData.push(d)
-        }
-    }
-
-    return cleanData
 }

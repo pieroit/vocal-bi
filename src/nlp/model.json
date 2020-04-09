@@ -36,6 +36,22 @@
         "trainByDomain": false,
         "keepStopwords": true,
         "stemDict": {
+          "grafic,il,ribalt": {
+            "domain": "default",
+            "intent": "switch_axis"
+          },
+          "assi,gli,ribalt": {
+            "domain": "default",
+            "intent": "switch_axis"
+          },
+          "assi,gli,scamb": {
+            "domain": "default",
+            "intent": "switch_axis"
+          },
+          "assi,gli,invert": {
+            "domain": "default",
+            "intent": "switch_axis"
+          },
           "%variabile_1%,%variabile_2%,a,com,rispett,var": {
             "domain": "default",
             "intent": "show_relation"
@@ -76,6 +92,26 @@
             "domain": "default",
             "intent": "reset_plot"
           },
+          "grafic,ribalt": {
+            "domain": "default",
+            "intent": "switch_axis"
+          },
+          "assi,ribalt": {
+            "domain": "default",
+            "intent": "switch_axis"
+          },
+          "assi,scamb": {
+            "domain": "default",
+            "intent": "switch_axis"
+          },
+          "assi,invert": {
+            "domain": "default",
+            "intent": "switch_axis"
+          },
+          "al,assi,contrar": {
+            "domain": "default",
+            "intent": "switch_axis"
+          },
           "%variabile%,raggrupp": {
             "domain": "default",
             "intent": "group_by"
@@ -91,13 +127,43 @@
           "%variabile%,a,bas,color,in": {
             "domain": "default",
             "intent": "group_by"
+          },
+          "%variabile%,e,numer": {
+            "domain": "default",
+            "intent": "change_variable_type"
+          },
+          "%variabile%,a,e,scal": {
+            "domain": "default",
+            "intent": "change_variable_type"
+          },
+          "%variabile%,categor,e": {
+            "domain": "default",
+            "intent": "change_variable_type"
+          },
+          "%variabile%,categor,son": {
+            "domain": "default",
+            "intent": "change_variable_type"
+          },
+          "%variabile%,class,son": {
+            "domain": "default",
+            "intent": "change_variable_type"
+          },
+          "%variabile%,camb,categor,in": {
+            "domain": "default",
+            "intent": "change_variable_type"
+          },
+          "%variabile%,in,numer": {
+            "domain": "default",
+            "intent": "change_variable_type"
           }
         },
         "intentDict": {
           "show_relation": "default",
           "show_distribution": "default",
           "reset_plot": "default",
-          "group_by": "default"
+          "group_by": "default",
+          "switch_axis": "default",
+          "change_variable_type": "default"
         },
         "useStemDict": true,
         "domains": {
@@ -121,6 +187,38 @@
             "language": "it",
             "keepStopwords": "it",
             "docs": [
+              {
+                "intent": "switch_axis",
+                "tokens": [
+                  "ribalt",
+                  "il",
+                  "grafic"
+                ]
+              },
+              {
+                "intent": "switch_axis",
+                "tokens": [
+                  "ribalt",
+                  "gli",
+                  "assi"
+                ]
+              },
+              {
+                "intent": "switch_axis",
+                "tokens": [
+                  "scamb",
+                  "gli",
+                  "assi"
+                ]
+              },
+              {
+                "intent": "switch_axis",
+                "tokens": [
+                  "invert",
+                  "gli",
+                  "assi"
+                ]
+              },
               {
                 "intent": "show_relation",
                 "tokens": [
@@ -222,6 +320,42 @@
                 ]
               },
               {
+                "intent": "switch_axis",
+                "tokens": [
+                  "ribalt",
+                  "grafic"
+                ]
+              },
+              {
+                "intent": "switch_axis",
+                "tokens": [
+                  "ribalt",
+                  "assi"
+                ]
+              },
+              {
+                "intent": "switch_axis",
+                "tokens": [
+                  "scamb",
+                  "assi"
+                ]
+              },
+              {
+                "intent": "switch_axis",
+                "tokens": [
+                  "invert",
+                  "assi"
+                ]
+              },
+              {
+                "intent": "switch_axis",
+                "tokens": [
+                  "assi",
+                  "al",
+                  "contrar"
+                ]
+              },
+              {
                 "intent": "group_by",
                 "tokens": [
                   "raggrupp",
@@ -253,21 +387,89 @@
                   "a",
                   "%variabile%"
                 ]
+              },
+              {
+                "intent": "change_variable_type",
+                "tokens": [
+                  "%variabile%",
+                  "e",
+                  "numer"
+                ]
+              },
+              {
+                "intent": "change_variable_type",
+                "tokens": [
+                  "%variabile%",
+                  "e",
+                  "a",
+                  "scal"
+                ]
+              },
+              {
+                "intent": "change_variable_type",
+                "tokens": [
+                  "%variabile%",
+                  "e",
+                  "categor"
+                ]
+              },
+              {
+                "intent": "change_variable_type",
+                "tokens": [
+                  "%variabile%",
+                  "son",
+                  "categor"
+                ]
+              },
+              {
+                "intent": "change_variable_type",
+                "tokens": [
+                  "%variabile%",
+                  "son",
+                  "class"
+                ]
+              },
+              {
+                "intent": "change_variable_type",
+                "tokens": [
+                  "camb",
+                  "%variabile%",
+                  "in",
+                  "categor"
+                ]
+              },
+              {
+                "intent": "change_variable_type",
+                "tokens": [
+                  "%variabile%",
+                  "in",
+                  "numer"
+                ]
               }
             ],
             "features": {
               "com": 2,
               "%variabile_2%": 5,
               "rispett": 2,
-              "a": 3,
+              "a": 4,
               "%variabile_1%": 5,
               "sull": 4,
               "x": 2,
-              "e": 4,
+              "e": 7,
               "y": 2,
               "distribu": 2,
-              "%variabile%": 6,
-              "grafic": 3,
+              "%variabile%": 13,
+              "grafic": 5,
+              "ribalt": 4,
+              "il": 1,
+              "gli": 3,
+              "assi": 7,
+              "scamb": 2,
+              "invert": 2,
+              "in": 3,
+              "numer": 2,
+              "categor": 3,
+              "son": 2,
               "var": 1,
               "relazion": 1,
               "tra": 1,
@@ -278,14 +480,18 @@
               "da": 1,
               "cap": 1,
               "resett": 1,
+              "al": 1,
+              "contrar": 1,
               "raggrupp": 1,
               "fai": 1,
               "grupp": 1,
               "per": 1,
               "separ": 1,
               "color": 1,
-              "in": 1,
-              "bas": 1
+              "bas": 1,
+              "scal": 1,
+              "class": 1,
+              "camb": 1
             },
             "isEditing": false,
             "className": "BrainNLU",
@@ -310,11 +516,18 @@
               "labels": [],
               "network": {
                 "sizes": [
-                  31,
-                  5
+                  45,
+                  7
                 ],
                 "layers": [
                   {
+                    "ribalt": {},
+                    "il": {},
+                    "grafic": {},
+                    "gli": {},
+                    "assi": {},
+                    "scamb": {},
+                    "invert": {},
                     "com": {},
                     "var": {},
                     "%variabile_2%": {},
@@ -331,12 +544,13 @@
                     "%variabile%": {},
                     "cre": {},
                     "nuov": {},
-                    "grafic": {},
                     "cancell": {},
                     "cominc": {},
                     "da": {},
                     "cap": {},
                     "resett": {},
+                    "al": {},
+                    "contrar": {},
                     "raggrupp": {},
                     "fai": {},
                     "grupp": {},
@@ -345,187 +559,348 @@
                     "color": {},
                     "in": {},
                     "bas": {},
+                    "numer": {},
+                    "scal": {},
+                    "categor": {},
+                    "son": {},
+                    "class": {},
+                    "camb": {},
                     "nonefeature": {}
                   },
                   {
-                    "show_relation": {
-                      "bias": 0.346935564,
+                    "switch_axis": {
+                      "bias": 1.068279536,
                       "weights": {
-                        "com": -0.259965241,
-                        "var": 0.264055878,
-                        "%variabile_2%": 4.131907463,
-                        "rispett": 2.126264811,
-                        "a": 1.760327578,
-                        "%variabile_1%": 4.131907463,
-                        "sull": 0.802386642,
-                        "x": 0.802386642,
-                        "e": 1.481619596,
-                        "y": 0.802386642,
-                        "relazion": 1.203255057,
-                        "tra": 1.203255057,
-                        "distribu": -0.735175848,
-                        "%variabile%": -1.295270085,
-                        "cre": -0.184724897,
-                        "nuov": -0.184724897,
-                        "grafic": -0.568387568,
-                        "cancell": -0.20985724,
-                        "cominc": -0.245138973,
-                        "da": -0.245138973,
-                        "cap": -0.245138973,
-                        "resett": -0.173805371,
-                        "raggrupp": -0.074115478,
-                        "fai": -0.064915776,
-                        "grupp": -0.064915776,
-                        "per": -0.064915776,
-                        "separ": -0.055125773,
-                        "color": -0.365936965,
-                        "in": -0.365936965,
-                        "bas": -0.365936965,
-                        "nonefeature": -0.332101792
+                        "ribalt": 6.546895981,
+                        "il": 0.883589447,
+                        "grafic": 4.235372543,
+                        "gli": -0.042744342,
+                        "assi": 5.158458233,
+                        "scamb": 6.247878075,
+                        "invert": 6.245995998,
+                        "com": -0.2893233,
+                        "var": -0.198333755,
+                        "%variabile_2%": -0.652695119,
+                        "rispett": -0.357594907,
+                        "a": -0.540980697,
+                        "%variabile_1%": -0.652695119,
+                        "sull": -0.195511892,
+                        "x": -0.195511892,
+                        "e": -0.611485541,
+                        "y": -0.195511892,
+                        "relazion": -0.099588402,
+                        "tra": -0.099588402,
+                        "distribu": -0.284545809,
+                        "%variabile%": -1.934777379,
+                        "cre": -2.599653244,
+                        "nuov": -2.599653244,
+                        "cancell": -5.091600895,
+                        "cominc": -0.555947006,
+                        "da": -0.555947006,
+                        "cap": -0.555947006,
+                        "resett": -5.06306076,
+                        "al": 3.107370138,
+                        "contrar": 3.107370138,
+                        "raggrupp": -0.358299613,
+                        "fai": -0.256592989,
+                        "grupp": -0.256592989,
+                        "per": -0.256592989,
+                        "separ": -0.296746194,
+                        "color": -0.145808205,
+                        "in": -0.251730025,
+                        "bas": -0.145808205,
+                        "numer": -0.171453342,
+                        "scal": -0.037577558,
+                        "categor": -0.257307738,
+                        "son": -0.261466891,
+                        "class": -0.126445815,
+                        "camb": -0.05216888,
+                        "nonefeature": -1.028645992
+                      }
+                    },
+                    "show_relation": {
+                      "bias": 0.223970704,
+                      "weights": {
+                        "ribalt": -0.232519343,
+                        "grafic": -0.552867651,
+                        "assi": -0.451575577,
+                        "scamb": -0.123500668,
+                        "invert": -0.10967543,
+                        "com": -0.20572342,
+                        "var": 0.207543522,
+                        "%variabile_2%": 4.383285999,
+                        "rispett": 2.167723894,
+                        "a": 1.340585589,
+                        "%variabile_1%": 4.383285999,
+                        "sull": 0.88627243,
+                        "x": 0.88627243,
+                        "e": 0.850464821,
+                        "y": 0.88627243,
+                        "relazion": 1.329289913,
+                        "tra": 1.329289913,
+                        "distribu": -0.624421656,
+                        "%variabile%": -1.87893343,
+                        "cre": -0.176222101,
+                        "nuov": -0.176222101,
+                        "cancell": -0.156504944,
+                        "cominc": -0.178330511,
+                        "da": -0.178330511,
+                        "cap": -0.178330511,
+                        "resett": -0.11840497,
+                        "al": -0.087615766,
+                        "contrar": -0.087615766,
+                        "raggrupp": -0.041783027,
+                        "fai": -0.037079655,
+                        "grupp": -0.037079655,
+                        "per": -0.037079655,
+                        "separ": -0.031747956,
+                        "color": -0.192070499,
+                        "in": -0.192070499,
+                        "bas": -0.192070499,
+                        "numer": -0.213941067,
+                        "scal": -0.635066807,
+                        "categor": -0.102822654,
+                        "nonefeature": -0.218330696
                       }
                     },
                     "show_distribution": {
-                      "bias": 0.212054274,
+                      "bias": 0.082008084,
                       "weights": {
-                        "com": 0.229804277,
-                        "var": -0.222128019,
-                        "%variabile_2%": -0.784081757,
-                        "rispett": -0.222128019,
-                        "a": -0.859185994,
-                        "%variabile_1%": -0.784081757,
-                        "sull": -0.288600594,
-                        "x": -0.288600594,
-                        "e": -0.110021532,
-                        "y": -0.288600594,
-                        "relazion": -0.273353219,
-                        "tra": -0.273353219,
-                        "distribu": 9.636740685,
-                        "%variabile%": 2.556926727,
-                        "cre": -0.147183612,
-                        "nuov": -0.147183612,
-                        "grafic": -0.433566391,
-                        "cancell": -0.15783833,
-                        "cominc": -0.18152912,
-                        "da": -0.18152912,
-                        "cap": -0.18152912,
-                        "resett": -0.12854448,
-                        "raggrupp": -2.762570381,
-                        "fai": -0.924425483,
-                        "grupp": -0.924425483,
-                        "per": -0.924425483,
-                        "separ": -2.755758524,
-                        "color": -0.63705796,
-                        "in": -0.63705796,
-                        "bas": -0.63705796,
-                        "nonefeature": -0.18289265
+                        "ribalt": -0.167426988,
+                        "grafic": -0.392381698,
+                        "assi": -0.344440997,
+                        "scamb": -0.096199729,
+                        "invert": -0.085043333,
+                        "com": 1.514070153,
+                        "var": -0.350112468,
+                        "%variabile_2%": -0.435495973,
+                        "rispett": -0.350112468,
+                        "a": -1.29554832,
+                        "%variabile_1%": -0.435495973,
+                        "sull": -0.066944681,
+                        "x": -0.066944681,
+                        "e": -1.460932016,
+                        "y": -0.066944681,
+                        "relazion": -0.01843882,
+                        "tra": -0.01843882,
+                        "distribu": 10.625397682,
+                        "%variabile%": 1.750666499,
+                        "cre": -0.117892191,
+                        "nuov": -0.117892191,
+                        "cancell": -0.115077011,
+                        "cominc": -0.134598479,
+                        "da": -0.134598479,
+                        "cap": -0.134598479,
+                        "resett": -0.088915475,
+                        "al": -0.066267952,
+                        "contrar": -0.066267952,
+                        "raggrupp": -1.8309654,
+                        "fai": -0.611645818,
+                        "grupp": -0.611645818,
+                        "per": -0.611645818,
+                        "separ": -1.828724146,
+                        "color": -0.281012058,
+                        "in": -0.391195089,
+                        "bas": -0.281012058,
+                        "numer": -1.440789819,
+                        "scal": -0.664423883,
+                        "categor": -1.356889486,
+                        "son": -0.972470343,
+                        "class": -0.860281289,
+                        "camb": -0.085801318,
+                        "nonefeature": -0.069733061
                       }
                     },
                     "reset_plot": {
-                      "bias": 1.493611459,
+                      "bias": 1.088713844,
                       "weights": {
-                        "com": -0.211539522,
-                        "var": -0.187249646,
-                        "%variabile_2%": -0.855526209,
-                        "rispett": -0.396027535,
-                        "a": -0.592330039,
-                        "%variabile_1%": -0.855526209,
-                        "sull": -0.243866533,
-                        "x": -0.243866533,
-                        "e": -0.48378846,
-                        "y": -0.243866533,
-                        "relazion": -0.215632096,
-                        "tra": -0.215632096,
-                        "distribu": -0.379262209,
-                        "%variabile%": -2.133416653,
-                        "cre": 1.575267553,
-                        "nuov": 1.575267553,
-                        "grafic": 7.852694035,
-                        "cancell": 3.142270803,
-                        "cominc": 3.663711071,
-                        "da": 3.663711071,
-                        "cap": 3.663711071,
-                        "resett": 3.135154724,
-                        "raggrupp": -0.635329604,
-                        "fai": -0.362455577,
-                        "grupp": -0.362455577,
-                        "per": -0.362455577,
-                        "separ": -0.560066819,
-                        "color": -0.196302488,
-                        "in": -0.196302488,
-                        "bas": -0.196302488,
-                        "nonefeature": -1.383624077
+                        "ribalt": -7.233204365,
+                        "il": -1.649196506,
+                        "grafic": 6.136966228,
+                        "gli": -0.015343328,
+                        "assi": -1.434118509,
+                        "scamb": -0.485864997,
+                        "invert": -0.457227588,
+                        "com": -0.117458537,
+                        "var": -0.117458537,
+                        "%variabile_2%": -0.529317081,
+                        "rispett": -0.285186499,
+                        "a": -0.461404711,
+                        "%variabile_1%": -0.529317081,
+                        "sull": -0.120517872,
+                        "x": -0.120517872,
+                        "e": -0.497487724,
+                        "y": -0.120517872,
+                        "relazion": -0.12361265,
+                        "tra": -0.12361265,
+                        "distribu": -0.094436228,
+                        "%variabile%": -1.653594017,
+                        "cre": 2.636506319,
+                        "nuov": 2.636506319,
+                        "cancell": 5.269142628,
+                        "cominc": 3.801313162,
+                        "da": 3.801313162,
+                        "cap": 3.801313162,
+                        "resett": 5.264763832,
+                        "al": -0.291268587,
+                        "contrar": -0.291268587,
+                        "raggrupp": -0.345839411,
+                        "fai": -0.205957815,
+                        "grupp": -0.205957815,
+                        "per": -0.205957815,
+                        "separ": -0.304351091,
+                        "color": -0.119924009,
+                        "in": -0.208107322,
+                        "bas": -0.119924009,
+                        "numer": -0.174131334,
+                        "scal": -0.056294203,
+                        "categor": -0.224351138,
+                        "son": -0.241545081,
+                        "class": -0.128308892,
+                        "camb": -0.0389373,
+                        "nonefeature": -1.035268068
                       }
                     },
                     "group_by": {
-                      "bias": 0.760637608,
+                      "bias": 0.473029545,
                       "weights": {
-                        "com": -1.519403338,
-                        "var": -0.287263215,
-                        "%variabile_2%": -0.826628923,
-                        "rispett": -0.661243379,
-                        "a": 0.817249894,
-                        "%variabile_1%": -0.826628923,
-                        "sull": -0.136993155,
-                        "x": -0.136993155,
-                        "e": -1.39752543,
-                        "y": -0.136993155,
-                        "relazion": -0.028392304,
-                        "tra": -0.028392304,
-                        "distribu": -7.237848759,
-                        "%variabile%": 6.484386921,
-                        "cre": -0.25023663,
-                        "nuov": -0.25023663,
-                        "grafic": -0.865701973,
-                        "cancell": -0.327902496,
-                        "cominc": -0.387457758,
-                        "da": -0.387457758,
-                        "cap": -0.387457758,
-                        "resett": -0.287562758,
-                        "raggrupp": 5.247628212,
-                        "fai": 1.751437426,
-                        "grupp": 1.751437426,
-                        "per": 1.751437426,
-                        "separ": 5.244678497,
-                        "color": 1.478492856,
-                        "in": 1.478492856,
-                        "bas": 1.478492856,
-                        "nonefeature": -0.720294833
+                        "ribalt": -0.251854539,
+                        "il": -0.162027031,
+                        "grafic": -0.527661443,
+                        "gli": -0.302245498,
+                        "assi": -0.499627948,
+                        "scamb": -0.168287247,
+                        "invert": -0.160159275,
+                        "com": -0.174962074,
+                        "var": -0.174962074,
+                        "%variabile_2%": -0.541774988,
+                        "rispett": -0.541774988,
+                        "a": 0.987605214,
+                        "%variabile_1%": -0.541774988,
+                        "e": -3.880525351,
+                        "distribu": -5.025698662,
+                        "%variabile%": 4.556200504,
+                        "cre": -0.098902598,
+                        "nuov": -0.098902598,
+                        "cancell": -0.140579551,
+                        "cominc": -0.218943387,
+                        "da": -0.218943387,
+                        "cap": -0.218943387,
+                        "resett": -0.126152277,
+                        "al": -0.081353925,
+                        "contrar": -0.081353925,
+                        "raggrupp": 7.467769146,
+                        "fai": 2.490186453,
+                        "grupp": 2.490186453,
+                        "per": 2.490186453,
+                        "separ": 7.465763092,
+                        "color": 3.687529325,
+                        "in": -0.892858565,
+                        "bas": 3.687529325,
+                        "numer": -4.152404785,
+                        "scal": -2.158148527,
+                        "categor": -3.181210279,
+                        "son": -3.068434238,
+                        "class": -2.037584305,
+                        "camb": -1.482572913,
+                        "nonefeature": -0.455300719
+                      }
+                    },
+                    "change_variable_type": {
+                      "bias": -0.122635669,
+                      "weights": {
+                        "ribalt": -0.573271334,
+                        "il": -0.309955418,
+                        "grafic": -0.453653365,
+                        "gli": -0.680545628,
+                        "assi": -0.680545628,
+                        "scamb": -0.235735252,
+                        "invert": -0.181494534,
+                        "com": -3.16534543,
+                        "var": -0.396005929,
+                        "%variabile_2%": -1.740506649,
+                        "rispett": -0.681389153,
+                        "a": 0.409970373,
+                        "%variabile_1%": -1.740506649,
+                        "sull": -0.616212189,
+                        "x": -0.616212189,
+                        "e": 4.120556831,
+                        "y": -0.616212189,
+                        "relazion": -0.442905307,
+                        "tra": -0.442905307,
+                        "distribu": -4.747317791,
+                        "%variabile%": 3.414074659,
+                        "cre": -0.053942177,
+                        "nuov": -0.053942177,
+                        "cancell": -0.052269317,
+                        "cominc": -0.12644273,
+                        "da": -0.12644273,
+                        "cap": -0.12644273,
+                        "resett": -0.03748643,
+                        "raggrupp": -3.284612656,
+                        "fai": -1.297262788,
+                        "grupp": -1.297262788,
+                        "per": -1.297262788,
+                        "separ": -3.286433697,
+                        "color": -3.629821062,
+                        "in": 3.588361263,
+                        "bas": -3.629821062,
+                        "numer": 5.412592411,
+                        "scal": 4.721181393,
+                        "categor": 4.844565392,
+                        "son": 4.492321014,
+                        "class": 4.681182861,
+                        "camb": 0.925933003,
+                        "nonefeature": -0.165964454
                       }
                     },
                     "None": {
-                      "bias": 5.826605646,
+                      "bias": 5.328448744,
                       "weights": {
-                        "com": -0.190278411,
-                        "var": -0.110630155,
-                        "%variabile_2%": -1.876187921,
-                        "rispett": -0.978452325,
-                        "a": -1.066727042,
-                        "%variabile_1%": -1.876187921,
-                        "sull": -0.362032443,
-                        "x": -0.362032443,
-                        "e": -0.977383614,
-                        "y": -0.362032443,
-                        "relazion": -0.535703063,
-                        "tra": -0.535703063,
-                        "distribu": -1.332945108,
-                        "%variabile%": -4.459076405,
-                        "cre": -0.842661262,
-                        "nuov": -0.842661262,
-                        "grafic": -4.119972229,
-                        "cancell": -1.648968458,
-                        "cominc": -1.918757439,
-                        "da": -1.918757439,
-                        "cap": -1.918757439,
-                        "resett": -1.628343463,
-                        "raggrupp": -1.303654909,
-                        "fai": -0.444531381,
-                        "grupp": -0.444531381,
-                        "per": -0.444531381,
-                        "separ": -1.289669633,
-                        "color": -0.088273995,
-                        "in": -0.088273995,
-                        "bas": -0.088273995,
-                        "nonefeature": 5.99747467
+                        "ribalt": -1.334619045,
+                        "il": -0.292614996,
+                        "grafic": -3.960650682,
+                        "gli": -0.529545963,
+                        "assi": -3.975582361,
+                        "scamb": -1.307989359,
+                        "invert": -1.301222444,
+                        "com": -0.15947248,
+                        "var": -0.103884265,
+                        "%variabile_2%": -1.729706883,
+                        "rispett": -0.917821169,
+                        "a": -0.930590987,
+                        "%variabile_1%": -1.729706883,
+                        "sull": -0.326800495,
+                        "x": -0.326800495,
+                        "e": -0.881013632,
+                        "y": -0.326800495,
+                        "relazion": -0.485085458,
+                        "tra": -0.485085458,
+                        "distribu": -0.976303756,
+                        "%variabile%": -4.335812569,
+                        "cre": -0.67757678,
+                        "nuov": -0.67757678,
+                        "cancell": -1.333981514,
+                        "cominc": -1.760124564,
+                        "da": -1.760124564,
+                        "cap": -1.760124564,
+                        "resett": -1.321611643,
+                        "al": -0.659227788,
+                        "contrar": -0.659227788,
+                        "raggrupp": -0.950012445,
+                        "fai": -0.322335273,
+                        "grupp": -0.322335273,
+                        "per": -0.322335273,
+                        "separ": -0.942738652,
+                        "color": -0.012769814,
+                        "in": -0.521335304,
+                        "bas": -0.012769814,
+                        "numer": -0.430350631,
+                        "categor": -0.353058368,
+                        "son": -0.609541833,
+                        "class": -0.348237097,
+                        "camb": -0.089183055,
+                        "nonefeature": 6.596697807
                       }
                     }
                   }
@@ -1058,6 +1433,222 @@
       [
         "it",
         "colora in base a %variabile%"
+      ],
+      [
+        "it",
+        "come varia %variabile_2% rispetto a %variabile_1%"
+      ],
+      [
+        "it",
+        "%variabile_2% rispetto a %variabile_1%"
+      ],
+      [
+        "it",
+        "%variabile_1% sulle x e %variabile_2% sulle y"
+      ],
+      [
+        "it",
+        "%variabile_2% sulle y e %variabile_1% sulle x"
+      ],
+      [
+        "it",
+        "relazione tra %variabile_1% e %variabile_2%"
+      ],
+      [
+        "it",
+        "distribuzione %variabile%"
+      ],
+      [
+        "it",
+        "come è distribuito %variabile%"
+      ],
+      [
+        "it",
+        "crea nuovo grafico"
+      ],
+      [
+        "it",
+        "cancella grafico"
+      ],
+      [
+        "it",
+        "comincia da capo"
+      ],
+      [
+        "it",
+        "resetta grafico"
+      ],
+      [
+        "it",
+        "ribalta il grafico"
+      ],
+      [
+        "it",
+        "ribalta gli assi"
+      ],
+      [
+        "it",
+        "scambia gli assi"
+      ],
+      [
+        "it",
+        "inverti gli assi"
+      ],
+      [
+        "it",
+        "assi al contrario"
+      ],
+      [
+        "it",
+        "raggruppa %variabile%"
+      ],
+      [
+        "it",
+        "fai gruppi per %variabile%"
+      ],
+      [
+        "it",
+        "separa %variabile%"
+      ],
+      [
+        "it",
+        "colora in base a %variabile%"
+      ],
+      [
+        "it",
+        "%variabile% è numerica"
+      ],
+      [
+        "it",
+        "%variabile% è a scala"
+      ],
+      [
+        "it",
+        "%variabile% è categorica"
+      ],
+      [
+        "it",
+        "%variabile% sono categorie"
+      ],
+      [
+        "it",
+        "%variabile% sono classi"
+      ],
+      [
+        "it",
+        "cambia %variabile% in categoria"
+      ],
+      [
+        "it",
+        "%variabile% in numerica"
+      ],
+      [
+        "it",
+        "come varia %variabile_2% rispetto a %variabile_1%"
+      ],
+      [
+        "it",
+        "%variabile_2% rispetto a %variabile_1%"
+      ],
+      [
+        "it",
+        "%variabile_1% sulle x e %variabile_2% sulle y"
+      ],
+      [
+        "it",
+        "%variabile_2% sulle y e %variabile_1% sulle x"
+      ],
+      [
+        "it",
+        "relazione tra %variabile_1% e %variabile_2%"
+      ],
+      [
+        "it",
+        "distribuzione %variabile%"
+      ],
+      [
+        "it",
+        "come è distribuito %variabile%"
+      ],
+      [
+        "it",
+        "crea nuovo grafico"
+      ],
+      [
+        "it",
+        "cancella grafico"
+      ],
+      [
+        "it",
+        "comincia da capo"
+      ],
+      [
+        "it",
+        "resetta grafico"
+      ],
+      [
+        "it",
+        "ribalta grafico"
+      ],
+      [
+        "it",
+        "ribalta assi"
+      ],
+      [
+        "it",
+        "scambia assi"
+      ],
+      [
+        "it",
+        "inverti assi"
+      ],
+      [
+        "it",
+        "assi al contrario"
+      ],
+      [
+        "it",
+        "raggruppa %variabile%"
+      ],
+      [
+        "it",
+        "fai gruppi per %variabile%"
+      ],
+      [
+        "it",
+        "separa %variabile%"
+      ],
+      [
+        "it",
+        "colora in base a %variabile%"
+      ],
+      [
+        "it",
+        "%variabile% è numerica"
+      ],
+      [
+        "it",
+        "%variabile% è a scala"
+      ],
+      [
+        "it",
+        "%variabile% è categorica"
+      ],
+      [
+        "it",
+        "%variabile% sono categorie"
+      ],
+      [
+        "it",
+        "%variabile% sono classi"
+      ],
+      [
+        "it",
+        "cambia %variabile% in categoria"
+      ],
+      [
+        "it",
+        "%variabile% in numerica"
       ]
     ]
   },

@@ -27,6 +27,16 @@
             ]
         },
 
+        "switch_axis": {
+            "utterances": [
+                "ribalta grafico",
+                "ribalta assi",
+                "scambia assi",
+                "inverti assi",
+                "assi al contrario"
+            ]
+        },
+
         "group_by" : {
             "utterances": [
                 "raggruppa %variabile%",
@@ -37,8 +47,8 @@
         },
 
         "change_variable_type" : {
-            "utterance": [
-                "TODO: inserire %tipo_variabile% come slot, entità: {numerica} o {nominale}",
+            "TODO": "inserire %tipo_variabile% come slot, entità: {numerica} o {nominale}",
+            "utterances": [
                 "%variabile% è numerica",
                 "%variabile% è a scala",
                 "%variabile% è categorica",
@@ -47,6 +57,6 @@
                 "cambia %variabile% in categoria",
                 "%variabile% in numerica"
             ]
-        },
+        }
     }
 }
