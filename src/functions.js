@@ -1,10 +1,12 @@
 import Papa from 'papaparse'
+import DataFrame from 'dataframe-js'
 import LanguageManager from './nlp/LanguageManager'
 
 export const parseCSVandNotifyStore = (file, dispatch) => {
 
     console.log('Uploaded file', file)
 
+    // TODO: is Papa necessary or can we just use Dataframe-js?
     Papa.parse(file, {
         download      : typeof(file) === 'string', // good both for forms and urls
         header        : true,
@@ -15,6 +17,9 @@ export const parseCSVandNotifyStore = (file, dispatch) => {
             // enrich metadata
             parsedCSV.meta.expandedMetaFields = expandParsedMeta(parsedCSV)
 
+            // convert to DataFrame
+            parsedCSV.data = new DataFrame(parsedCSV.data)
+            console.log(parsedCSV)
             // train NER model to recognize column names
             window.languageManager.addEntities('variabile', parsedCSV.meta.fields)
             

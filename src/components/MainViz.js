@@ -18,6 +18,7 @@ function MainViz() {
     let vizMetadata       = useSelector(state => state.parsedMeta)
     let vizX              = useSelector(state => state.variableOnXaxis)
     let vizY              = useSelector(state => state.variableOnYaxis)
+    let vizColor          = useSelector(state => state.variableOnColorAxis)
     let vizIsDistribution = useSelector(state => state.showDistribution)
 
     if(!vizData) {
@@ -28,7 +29,8 @@ function MainViz() {
     
     let axisVariables = {
         x: vizX,
-        y: vizY
+        y: vizY,
+        c: vizColor,
     }
 
     if(!vizX) {
@@ -62,7 +64,8 @@ function MainViz() {
 
     console.log('DISTRIBUTION', vizIsDistribution)
     console.log('VARIABLES', axisVariables)
-    console.log('GROUPING', axisVariables, metric)
+    console.log('AGGREGATION', axisVariables, metric)
+    console.log('GROUPBY', axisVariables['c'])
     console.log('PLOT', detectedTypeOfPlot)
     console.log('DATA', vizCleanData)
     console.log('DATA X', _.uniq( _.map(vizCleanData, axisVariables['x']) ) )

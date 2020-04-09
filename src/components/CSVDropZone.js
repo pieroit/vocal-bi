@@ -36,15 +36,15 @@ let CSVDropZone = (props) => {
     let demoDatasets = [
         {
             'text': 'Demo pollo',
-            'url' : 'polli.csv'
+            'url' : 'demo_dataset/polli.csv'
         },
         {
             'text': 'Demo titanic',
-            'url' : 'titanic.csv'
+            'url' : 'demo_dataset/titanic.csv'
         },
         {
             'text': 'Demo impianti',
-            'url' : 'impianti.csv'
+            'url' : 'demo_dataset/impianti.csv'
         },
     ]
     let demoDatasetsJSX = demoDatasets.map( (d) => {

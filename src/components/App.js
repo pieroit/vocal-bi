@@ -21,7 +21,7 @@ import VoiceBar from './VoiceBar'
 import Footer from './Footer'
 import CSVDropZone from './CSVDropZone'
 import MetaPanel from './MetaPanel'
-import MainChart from './MainViz'
+import MainViz from './MainViz'
 import Help from './Help'
 import initialState from './../initialState'
 
@@ -55,7 +55,7 @@ let App = () => {
 			'icon': <PublishIcon />
 		},
 		'Home': {
-			'component': <MainChart />,
+			'component': <MainViz />,
 			'icon': <EyeIcon />
 		},
 		'Settings': {

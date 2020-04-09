@@ -5,8 +5,9 @@ let initialState = {
     currentPage: "Upload",
     parsedData: undefined,
     parsedMeta: undefined,
-    variableOnXaxis: undefined,
-    variableOnYaxis: undefined,
+    variableOnXaxis:     undefined,
+    variableOnYaxis:     undefined,
+    variableOnColorAxis: undefined,
     showDistribution: false
 }
 

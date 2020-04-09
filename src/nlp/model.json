@@ -87,6 +87,10 @@
           "%variabile%,separ": {
             "domain": "default",
             "intent": "group_by"
+          },
+          "%variabile%,a,bas,color,in": {
+            "domain": "default",
+            "intent": "group_by"
           }
         },
         "intentDict": {
@@ -239,20 +243,30 @@
                   "separ",
                   "%variabile%"
                 ]
+              },
+              {
+                "intent": "group_by",
+                "tokens": [
+                  "color",
+                  "in",
+                  "bas",
+                  "a",
+                  "%variabile%"
+                ]
               }
             ],
             "features": {
               "com": 2,
               "%variabile_2%": 5,
               "rispett": 2,
-              "a": 2,
+              "a": 3,
               "%variabile_1%": 5,
               "sull": 4,
               "x": 2,
               "e": 4,
               "y": 2,
               "distribu": 2,
-              "%variabile%": 5,
+              "%variabile%": 6,
               "grafic": 3,
               "var": 1,
               "relazion": 1,
@@ -268,7 +282,10 @@
               "fai": 1,
               "grupp": 1,
               "per": 1,
-              "separ": 1
+              "separ": 1,
+              "color": 1,
+              "in": 1,
+              "bas": 1
             },
             "isEditing": false,
             "className": "BrainNLU",
@@ -293,7 +310,7 @@
               "labels": [],
               "network": {
                 "sizes": [
-                  28,
+                  31,
                   5
                 ],
                 "layers": [
@@ -325,172 +342,190 @@
                     "grupp": {},
                     "per": {},
                     "separ": {},
+                    "color": {},
+                    "in": {},
+                    "bas": {},
                     "nonefeature": {}
                   },
                   {
                     "show_relation": {
-                      "bias": 0.373882914,
+                      "bias": 0.346935564,
                       "weights": {
-                        "com": -0.308949053,
-                        "var": 0.312449366,
-                        "%variabile_2%": 4.075421333,
-                        "rispett": 1.986446619,
-                        "a": 1.986446619,
-                        "%variabile_1%": 4.075421333,
-                        "sull": 0.835731804,
-                        "x": 0.835731804,
-                        "e": 1.467576265,
-                        "y": 0.835731804,
-                        "relazion": 1.253243327,
-                        "tra": 1.253243327,
-                        "distribu": -0.832553267,
-                        "%variabile%": -1.026710153,
-                        "cre": -0.195030302,
-                        "nuov": -0.195030302,
-                        "grafic": -0.60496515,
-                        "cancell": -0.223431632,
-                        "cominc": -0.261954129,
-                        "da": -0.261954129,
-                        "cap": -0.261954129,
-                        "resett": -0.186503306,
+                        "com": -0.259965241,
+                        "var": 0.264055878,
+                        "%variabile_2%": 4.131907463,
+                        "rispett": 2.126264811,
+                        "a": 1.760327578,
+                        "%variabile_1%": 4.131907463,
+                        "sull": 0.802386642,
+                        "x": 0.802386642,
+                        "e": 1.481619596,
+                        "y": 0.802386642,
+                        "relazion": 1.203255057,
+                        "tra": 1.203255057,
+                        "distribu": -0.735175848,
+                        "%variabile%": -1.295270085,
+                        "cre": -0.184724897,
+                        "nuov": -0.184724897,
+                        "grafic": -0.568387568,
+                        "cancell": -0.20985724,
+                        "cominc": -0.245138973,
+                        "da": -0.245138973,
+                        "cap": -0.245138973,
+                        "resett": -0.173805371,
                         "raggrupp": -0.074115478,
                         "fai": -0.064915776,
                         "grupp": -0.064915776,
                         "per": -0.064915776,
                         "separ": -0.055125773,
-                        "nonefeature": -0.358288407
+                        "color": -0.365936965,
+                        "in": -0.365936965,
+                        "bas": -0.365936965,
+                        "nonefeature": -0.332101792
                       }
                     },
                     "show_distribution": {
-                      "bias": 0.222819709,
+                      "bias": 0.212054274,
                       "weights": {
-                        "com": 0.179801956,
-                        "var": -0.291305304,
-                        "%variabile_2%": -0.823562026,
-                        "rispett": -0.291305304,
-                        "a": -0.291305304,
-                        "%variabile_1%": -0.823562026,
-                        "sull": -0.280912966,
-                        "x": -0.280912966,
-                        "e": -0.061150283,
-                        "y": -0.280912966,
-                        "relazion": -0.251343846,
-                        "tra": -0.251343846,
-                        "distribu": 9.487498283,
-                        "%variabile%": 2.696490049,
-                        "cre": -0.155670553,
-                        "nuov": -0.155670553,
-                        "grafic": -0.459552526,
-                        "cancell": -0.167593688,
-                        "cominc": -0.192179665,
-                        "da": -0.192179665,
-                        "cap": -0.192179665,
-                        "resett": -0.1362883,
-                        "raggrupp": -2.912048101,
-                        "fai": -0.974353194,
-                        "grupp": -0.974353194,
-                        "per": -0.974353194,
-                        "separ": -2.904607296,
-                        "nonefeature": -0.193288311
+                        "com": 0.229804277,
+                        "var": -0.222128019,
+                        "%variabile_2%": -0.784081757,
+                        "rispett": -0.222128019,
+                        "a": -0.859185994,
+                        "%variabile_1%": -0.784081757,
+                        "sull": -0.288600594,
+                        "x": -0.288600594,
+                        "e": -0.110021532,
+                        "y": -0.288600594,
+                        "relazion": -0.273353219,
+                        "tra": -0.273353219,
+                        "distribu": 9.636740685,
+                        "%variabile%": 2.556926727,
+                        "cre": -0.147183612,
+                        "nuov": -0.147183612,
+                        "grafic": -0.433566391,
+                        "cancell": -0.15783833,
+                        "cominc": -0.18152912,
+                        "da": -0.18152912,
+                        "cap": -0.18152912,
+                        "resett": -0.12854448,
+                        "raggrupp": -2.762570381,
+                        "fai": -0.924425483,
+                        "grupp": -0.924425483,
+                        "per": -0.924425483,
+                        "separ": -2.755758524,
+                        "color": -0.63705796,
+                        "in": -0.63705796,
+                        "bas": -0.63705796,
+                        "nonefeature": -0.18289265
                       }
                     },
                     "reset_plot": {
-                      "bias": 1.496540318,
+                      "bias": 1.493611459,
                       "weights": {
-                        "com": -0.25627923,
-                        "var": -0.209262222,
-                        "%variabile_2%": -0.882635534,
-                        "rispett": -0.454948962,
-                        "a": -0.454948962,
-                        "%variabile_1%": -0.882635534,
-                        "sull": -0.23124215,
-                        "x": -0.23124215,
-                        "e": -0.47470358,
-                        "y": -0.23124215,
-                        "relazion": -0.196444422,
-                        "tra": -0.196444422,
-                        "distribu": -0.435082138,
-                        "%variabile%": -2.085732698,
-                        "cre": 1.574849486,
-                        "nuov": 1.574849486,
-                        "grafic": 7.850600719,
-                        "cancell": 3.141433239,
-                        "cominc": 3.662734032,
-                        "da": 3.662734032,
-                        "cap": 3.662734032,
-                        "resett": 3.134316206,
-                        "raggrupp": -0.672812462,
-                        "fai": -0.38335681,
-                        "grupp": -0.38335681,
-                        "per": -0.38335681,
-                        "separ": -0.594480991,
-                        "nonefeature": -1.386535883
+                        "com": -0.211539522,
+                        "var": -0.187249646,
+                        "%variabile_2%": -0.855526209,
+                        "rispett": -0.396027535,
+                        "a": -0.592330039,
+                        "%variabile_1%": -0.855526209,
+                        "sull": -0.243866533,
+                        "x": -0.243866533,
+                        "e": -0.48378846,
+                        "y": -0.243866533,
+                        "relazion": -0.215632096,
+                        "tra": -0.215632096,
+                        "distribu": -0.379262209,
+                        "%variabile%": -2.133416653,
+                        "cre": 1.575267553,
+                        "nuov": 1.575267553,
+                        "grafic": 7.852694035,
+                        "cancell": 3.142270803,
+                        "cominc": 3.663711071,
+                        "da": 3.663711071,
+                        "cap": 3.663711071,
+                        "resett": 3.135154724,
+                        "raggrupp": -0.635329604,
+                        "fai": -0.362455577,
+                        "grupp": -0.362455577,
+                        "per": -0.362455577,
+                        "separ": -0.560066819,
+                        "color": -0.196302488,
+                        "in": -0.196302488,
+                        "bas": -0.196302488,
+                        "nonefeature": -1.383624077
                       }
                     },
                     "group_by": {
-                      "bias": 0.758852269,
+                      "bias": 0.760637608,
                       "weights": {
-                        "com": -1.321617842,
-                        "var": -0.143819541,
-                        "%variabile_2%": -0.495568663,
-                        "rispett": -0.294623494,
-                        "a": -0.294623494,
-                        "%variabile_1%": -0.495568663,
-                        "sull": -0.141886458,
-                        "x": -0.141886458,
-                        "e": -1.378743529,
-                        "y": -0.141886458,
-                        "relazion": -0.059058707,
-                        "tra": -0.059058707,
-                        "distribu": -6.895840168,
-                        "%variabile%": 6.144228935,
-                        "cre": -0.248891115,
-                        "nuov": -0.248891115,
-                        "grafic": -0.869278193,
-                        "cancell": -0.330487788,
-                        "cominc": -0.390047044,
-                        "da": -0.390047044,
-                        "cap": -0.390047044,
-                        "resett": -0.28989929,
-                        "raggrupp": 5.589182377,
-                        "fai": 1.865340352,
-                        "grupp": 1.865340352,
-                        "per": 1.865340352,
-                        "separ": 5.58554697,
-                        "nonefeature": -0.717388391
+                        "com": -1.519403338,
+                        "var": -0.287263215,
+                        "%variabile_2%": -0.826628923,
+                        "rispett": -0.661243379,
+                        "a": 0.817249894,
+                        "%variabile_1%": -0.826628923,
+                        "sull": -0.136993155,
+                        "x": -0.136993155,
+                        "e": -1.39752543,
+                        "y": -0.136993155,
+                        "relazion": -0.028392304,
+                        "tra": -0.028392304,
+                        "distribu": -7.237848759,
+                        "%variabile%": 6.484386921,
+                        "cre": -0.25023663,
+                        "nuov": -0.25023663,
+                        "grafic": -0.865701973,
+                        "cancell": -0.327902496,
+                        "cominc": -0.387457758,
+                        "da": -0.387457758,
+                        "cap": -0.387457758,
+                        "resett": -0.287562758,
+                        "raggrupp": 5.247628212,
+                        "fai": 1.751437426,
+                        "grupp": 1.751437426,
+                        "per": 1.751437426,
+                        "separ": 5.244678497,
+                        "color": 1.478492856,
+                        "in": 1.478492856,
+                        "bas": 1.478492856,
+                        "nonefeature": -0.720294833
                       }
                     },
                     "None": {
-                      "bias": 5.827283616,
+                      "bias": 5.826605646,
                       "weights": {
-                        "com": -0.199583307,
-                        "var": -0.11620044,
-                        "%variabile_2%": -1.890956044,
-                        "rispett": -1.008033752,
-                        "a": -1.008033752,
-                        "%variabile_1%": -1.890956044,
-                        "sull": -0.356097668,
-                        "x": -0.356097668,
-                        "e": -0.966304541,
-                        "y": -0.356097668,
-                        "relazion": -0.526824117,
-                        "tra": -0.526824117,
-                        "distribu": -1.353554606,
-                        "%variabile%": -4.438150883,
-                        "cre": -0.842755198,
-                        "nuov": -0.842755198,
-                        "grafic": -4.12031126,
-                        "cancell": -1.649134398,
-                        "cominc": -1.918922544,
-                        "da": -1.918922544,
-                        "cap": -1.918922544,
-                        "resett": -1.628422022,
-                        "raggrupp": -1.323950648,
-                        "fai": -0.451319516,
-                        "grupp": -0.451319516,
-                        "per": -0.451319516,
-                        "separ": -1.309324861,
-                        "nonefeature": 5.996677399
+                        "com": -0.190278411,
+                        "var": -0.110630155,
+                        "%variabile_2%": -1.876187921,
+                        "rispett": -0.978452325,
+                        "a": -1.066727042,
+                        "%variabile_1%": -1.876187921,
+                        "sull": -0.362032443,
+                        "x": -0.362032443,
+                        "e": -0.977383614,
+                        "y": -0.362032443,
+                        "relazion": -0.535703063,
+                        "tra": -0.535703063,
+                        "distribu": -1.332945108,
+                        "%variabile%": -4.459076405,
+                        "cre": -0.842661262,
+                        "nuov": -0.842661262,
+                        "grafic": -4.119972229,
+                        "cancell": -1.648968458,
+                        "cominc": -1.918757439,
+                        "da": -1.918757439,
+                        "cap": -1.918757439,
+                        "resett": -1.628343463,
+                        "raggrupp": -1.303654909,
+                        "fai": -0.444531381,
+                        "grupp": -0.444531381,
+                        "per": -0.444531381,
+                        "separ": -1.289669633,
+                        "color": -0.088273995,
+                        "in": -0.088273995,
+                        "bas": -0.088273995,
+                        "nonefeature": 5.99747467
                       }
                     }
                   }
@@ -903,6 +938,126 @@
       [
         "it",
         "separa %variabile%"
+      ],
+      [
+        "it",
+        "come varia %variabile_2% rispetto a %variabile_1%"
+      ],
+      [
+        "it",
+        "%variabile_2% rispetto a %variabile_1%"
+      ],
+      [
+        "it",
+        "%variabile_1% sulle x e %variabile_2% sulle y"
+      ],
+      [
+        "it",
+        "%variabile_2% sulle y e %variabile_1% sulle x"
+      ],
+      [
+        "it",
+        "relazione tra %variabile_1% e %variabile_2%"
+      ],
+      [
+        "it",
+        "distribuzione %variabile%"
+      ],
+      [
+        "it",
+        "come è distribuito %variabile%"
+      ],
+      [
+        "it",
+        "crea nuovo grafico"
+      ],
+      [
+        "it",
+        "cancella grafico"
+      ],
+      [
+        "it",
+        "comincia da capo"
+      ],
+      [
+        "it",
+        "resetta grafico"
+      ],
+      [
+        "it",
+        "raggruppa %variabile%"
+      ],
+      [
+        "it",
+        "fai gruppi per %variabile%"
+      ],
+      [
+        "it",
+        "separa %variabile%"
+      ],
+      [
+        "it",
+        "colora in base a %variabile%"
+      ],
+      [
+        "it",
+        "come varia %variabile_2% rispetto a %variabile_1%"
+      ],
+      [
+        "it",
+        "%variabile_2% rispetto a %variabile_1%"
+      ],
+      [
+        "it",
+        "%variabile_1% sulle x e %variabile_2% sulle y"
+      ],
+      [
+        "it",
+        "%variabile_2% sulle y e %variabile_1% sulle x"
+      ],
+      [
+        "it",
+        "relazione tra %variabile_1% e %variabile_2%"
+      ],
+      [
+        "it",
+        "distribuzione %variabile%"
+      ],
+      [
+        "it",
+        "come è distribuito %variabile%"
+      ],
+      [
+        "it",
+        "crea nuovo grafico"
+      ],
+      [
+        "it",
+        "cancella grafico"
+      ],
+      [
+        "it",
+        "comincia da capo"
+      ],
+      [
+        "it",
+        "resetta grafico"
+      ],
+      [
+        "it",
+        "raggruppa %variabile%"
+      ],
+      [
+        "it",
+        "fai gruppi per %variabile%"
+      ],
+      [
+        "it",
+        "separa %variabile%"
+      ],
+      [
+        "it",
+        "colora in base a %variabile%"
       ]
     ]
   },

@@ -1,5 +1,19 @@
 
+/**
+ * function used by the reducer to reset plot
+ */
+let resetPlot = (newState) => {
+    newState.variableOnXaxis = undefined
+    newState.variableOnYaxis = undefined
+    return newState
+}
 
+
+/**
+ * Redux reducer
+ * @param {*} state 
+ * @param {*} action 
+ */
 let reducer = ( state={}, action ) => {
     
     let newState = {
@@ -22,16 +36,12 @@ let reducer = ( state={}, action ) => {
         case 'PARSED_INTENT':
 
             let intent   = action.body.intent
+            let entities = action.body.entities
 
             // reset X and Y axis
             if( ['reset_plot', 'show_relation', 'show_distribution'].includes(intent) ){
-                newState.variableOnXaxis = undefined
-                newState.variableOnYaxis = undefined
+                newState = resetPlot(newState)
                 newState.currentPage = 'Home'
-            }
-
-            if( intent == 'reset_plot' ) {
-
             }
 
             if( intent == 'show_relation' ) {
@@ -40,8 +50,10 @@ let reducer = ( state={}, action ) => {
             if( intent == 'show_distribution' ) {
                 newState.showDistribution = true
             }
-            
-            let entities = action.body.entities
+            if( intent == 'group_by' ) {
+                newState.variableOnColorAxis = entities[0].option
+                break   // TODO: not elegant at all
+            }
 
             let foundVariabile = 0
             for( let ent of entities){

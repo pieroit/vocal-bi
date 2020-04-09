@@ -34,6 +34,19 @@
                 "separa %variabile%",
                 "colora in base a %variabile%"
             ]
-        }
+        },
+
+        "change_variable_type" : {
+            "utterance": [
+                "TODO: inserire %tipo_variabile% come slot, entità: {numerica} o {nominale}",
+                "%variabile% è numerica",
+                "%variabile% è a scala",
+                "%variabile% è categorica",
+                "%variabile% sono categorie",
+                "%variabile% sono classi",
+                "cambia %variabile% in categoria",
+                "%variabile% in numerica"
+            ]
+        },
     }
 }

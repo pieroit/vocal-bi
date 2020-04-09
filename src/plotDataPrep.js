@@ -6,6 +6,7 @@ export const aggregateDataForDistributionPlot = (dataToBeAggregated, variablesAx
 
     let x = variablesAxis['x']
     let y = variablesAxis['y']
+    // TODO: should this work with colors?
     let metricType   = aggregationMetric['metricType']
     let metricOnAxis = aggregationMetric['metricOnAxis']
     let metricOnVariable = variablesAxis[metricOnAxis] // TODO: metricOnAxis can be an array in some cases
@@ -55,9 +56,10 @@ export const aggregateDataForDistributionPlot = (dataToBeAggregated, variablesAx
 
 export const aggregateDataForRelationPlot = (dataToBeAggregated, variablesAxis, aggregationMetric) => {
 
-    // ASSUMING BOTH VARIABLES ARE DEFINED
+    // ASSUMING x AND y ARE DEFINED
     let x = variablesAxis['x']
     let y = variablesAxis['y']
+    let c = variablesAxis['c']
     let metricType   = aggregationMetric['metricType']
     let metricOnAxis = aggregationMetric['metricOnAxis']
     let metricOnVariable = variablesAxis[metricOnAxis] // TODO: metricOnAxis can be an array in some cases
